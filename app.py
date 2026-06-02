@@ -211,7 +211,7 @@ def render_login_page():
 
     # Page config MUST be first Streamlit command
     st.set_page_config(
-        page_title="Nigerian Exchange Group Volatility Prediction - Login",
+        page_title="Nigerian Exchange Group Volatility Prediction  - Login",
         page_icon="Nigeria Exchange Group Volatility Prediction",
         layout="centered",
         initial_sidebar_state="collapsed"
