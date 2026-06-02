@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+DANGCEM,Random Forest,46.56067112500445,90.0,VERY HIGH,AVOID or REDUCE POSITION,Consider selling or hedging. Volatility is in top 20% historically.,RED,Stable,2.143132483716295,Short-term only
+DANGCEM,XGBoost,37.778816,100.0,VERY HIGH,AVOID or REDUCE POSITION,Consider selling or hedging. Volatility is in top 20% historically.,RED,Stable,2.6399980400654552,Short-term only
+DANGCEM,Ridge,47.359560320045304,90.0,VERY HIGH,AVOID or REDUCE POSITION,Consider selling or hedging. Volatility is in top 20% historically.,RED,Stable,2.1070570255106937,Short-term only
+DANGCEM,SVR,40.13390548974864,80.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,2.48546589705241,Medium-term with hedging

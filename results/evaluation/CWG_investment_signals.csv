@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+CWG,Random Forest,43.099589129748175,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.31483683096277,Long-term favorable
+CWG,XGBoost,39.833477,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.504164613564704,Long-term favorable
+CWG,Ridge,36.96227931485349,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.6981610912398173,Long-term favorable
+CWG,SVR,42.26815680150895,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.360263168126268,Long-term favorable

@@ -1,0 +1,51 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: FIRSTHOLDCO
+Generated: 2026-04-09 21:41:30
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+      Stock  Rank         Model     RMSE      MAE      MAPE       R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+FIRSTHOLDCO     1         Ridge 0.043639 0.032071  8.357330 0.950798             63.478261 -0.589086  0.007566 0.951023
+FIRSTHOLDCO     2       XGBoost 0.046435 0.034525  9.702885 0.944292             61.739130 -0.586240 -0.013813 0.981329
+FIRSTHOLDCO     3 Random Forest 0.095598 0.082217 20.348932 0.763882             61.739130 -0.541352 -0.033012 0.914370
+FIRSTHOLDCO     4           SVR 0.188365 0.159750 52.136448 0.083292             53.043478 -0.333665 -0.525606 1.612852
+
+BEST PERFORMING MODEL: Ridge
+  Primary Metric (RMSE): 0.043639
+  Secondary Metric (R2):  0.9508
+  Directional Accuracy:    63.48%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+Significant differences found in 5 comparisons:
+  * XGBoost is significantly better (DM=5.862, p=0.0000)
+  * Ridge is significantly better (DM=6.237, p=0.0000)
+  * Random Forest is significantly better (DM=-4.391, p=0.0000)
+  * XGBoost is significantly better (DM=-5.723, p=0.0000)
+  * Ridge is significantly better (DM=-5.709, p=0.0000)
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.0330 OK      0.9144 OK
+XGBoost          -0.0138 OK      0.9813 OK
+Ridge             0.0076 OK      0.9510 OK
+SVR              -0.5256 XX      1.6129 XX
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    53.59%
+Historical Percentile: 60.3%
+Risk Level:            MODERATE
+Recommendation:        HOLD / MAINTAIN
+Action:                Normal market conditions. Stick to your strategy.
+Trend:                 Falling
+Investment Horizon:    Medium-term
+
+================================================================================
+END OF REPORT
+================================================================================

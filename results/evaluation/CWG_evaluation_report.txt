@@ -1,0 +1,46 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: CWG
+Generated: 2026-04-09 21:41:30
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+Stock  Rank         Model     RMSE      MAE     MAPE        R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+  CWG     1           SVR 0.026520 0.020003 4.761980  0.375766             66.666667 -0.602347 -0.028672 1.042981
+  CWG     2 Random Forest 0.029591 0.017603 4.373997  0.222809             44.444444 -0.600740 -0.525710 2.111403
+  CWG     3       XGBoost 0.029801 0.020793 4.925460  0.211761             55.555556 -0.601102  0.048308 0.861805
+  CWG     4         Ridge 0.038438 0.033586 7.581391 -0.311336             22.222222 -0.593574  0.243943 0.474845
+
+BEST PERFORMING MODEL: SVR
+  Primary Metric (RMSE): 0.026520
+  Secondary Metric (R2):  0.3758
+  Directional Accuracy:    66.67%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+  No statistically significant differences detected at alpha=0.05
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.5257 XX      2.1114 XX
+XGBoost           0.0483 OK      0.8618 XX
+Ridge             0.2439 XX      0.4748 XX
+SVR              -0.0287 OK      1.0430 OK
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    42.27%
+Historical Percentile: 10.0%
+Risk Level:            LOW
+Recommendation:        FAVORABLE ENTRY
+Action:                Good time to accumulate. Low volatility environment.
+Trend:                 Stable
+Investment Horizon:    Long-term favorable
+
+================================================================================
+END OF REPORT
+================================================================================

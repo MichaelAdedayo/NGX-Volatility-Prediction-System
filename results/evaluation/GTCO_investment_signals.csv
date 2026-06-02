@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+GTCO,Random Forest,34.77783083594752,76.92307692307692,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Rising,2.8671507832686958,Medium-term with hedging
+GTCO,XGBoost,33.28992,76.92307692307692,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,2.9949158308854886,Medium-term with hedging
+GTCO,Ridge,35.018449387655046,84.61538461538461,VERY HIGH,AVOID or REDUCE POSITION,Consider selling or hedging. Volatility is in top 20% historically.,RED,Rising,2.8475061326355804,Short-term only
+GTCO,SVR,46.16724652072813,96.15384615384616,VERY HIGH,AVOID or REDUCE POSITION,Consider selling or hedging. Volatility is in top 20% historically.,RED,Rising,2.1613561973090216,Short-term only

@@ -1,0 +1,212 @@
+2026-04-09 20:40:52 | WARNING  | From c:\Users\DELL\Documents\NSE_Volatility_Project\.venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-04-09 20:40:57 | INFO     | ================================================================================
+2026-04-09 20:40:57 | INFO     | NIGERIAN EXCHANGE GROUP (NGX) VOLATILITY PREDICTION SYSTEM
+2026-04-09 20:40:57 | INFO     | B.Sc. Computer Science Final Year Project
+2026-04-09 20:40:57 | INFO     | ================================================================================
+2026-04-09 20:40:57 | INFO     | Start time: 2026-04-09 20:40:57
+2026-04-09 20:40:57 | INFO     | Target stocks: 15
+2026-04-09 20:40:57 | INFO     | ================================================================================
+2026-04-09 20:40:59 | INFO     | Data available for 15/15 stocks
+2026-04-09 20:40:59 | INFO     |   • DANGSUG
+2026-04-09 20:40:59 | INFO     |   • DANGCEM
+2026-04-09 20:40:59 | INFO     |   • MTNN
+2026-04-09 20:40:59 | INFO     |   • GTCO
+2026-04-09 20:40:59 | INFO     |   • SEPLAT
+2026-04-09 20:40:59 | INFO     |   • AIRTEL
+2026-04-09 20:40:59 | INFO     |   • INTERBREW
+2026-04-09 20:40:59 | INFO     |   • FIRSTHOLDCO
+2026-04-09 20:40:59 | INFO     |   • ETI
+2026-04-09 20:40:59 | INFO     |   • ZENITH
+2026-04-09 20:40:59 | INFO     |   • CWG
+2026-04-09 20:40:59 | INFO     |   • NESTLE
+2026-04-09 20:40:59 | INFO     |   • NB
+2026-04-09 20:40:59 | INFO     |   • ACCESS
+2026-04-09 20:40:59 | INFO     |   • WAPCO
+2026-04-09 20:40:59 | INFO     | 
+======================================================================
+2026-04-09 20:40:59 | INFO     | PROCESSING: DANGSUG
+2026-04-09 20:40:59 | INFO     | ======================================================================
+2026-04-09 20:40:59 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:40:59 | ERROR    | Error loading DANGSUG.csv: Could not parse DANGSUG.csv with any separator
+2026-04-09 20:40:59 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from DANGSUG.csv
+
+2026-04-09 20:41:00 | INFO     | 
+======================================================================
+2026-04-09 20:41:00 | INFO     | PROCESSING: DANGCEM
+2026-04-09 20:41:00 | INFO     | ======================================================================
+2026-04-09 20:41:00 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:00 | ERROR    | Error loading DANGCEM.csv: Could not parse DANGCEM.csv with any separator
+2026-04-09 20:41:00 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from DANGCEM.csv
+
+2026-04-09 20:41:01 | INFO     | 
+======================================================================
+2026-04-09 20:41:01 | INFO     | PROCESSING: MTNN
+2026-04-09 20:41:01 | INFO     | ======================================================================
+2026-04-09 20:41:01 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:01 | ERROR    | Error loading MTNN.csv: Could not parse MTNN.csv with any separator
+2026-04-09 20:41:01 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from MTNN.csv
+
+2026-04-09 20:41:02 | INFO     | 
+======================================================================
+2026-04-09 20:41:02 | INFO     | PROCESSING: GTCO
+2026-04-09 20:41:02 | INFO     | ======================================================================
+2026-04-09 20:41:02 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:02 | ERROR    | Error loading GTCO.csv: Could not parse GTCO.csv with any separator
+2026-04-09 20:41:02 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from GTCO.csv
+
+2026-04-09 20:41:03 | INFO     | 
+======================================================================
+2026-04-09 20:41:03 | INFO     | PROCESSING: SEPLAT
+2026-04-09 20:41:03 | INFO     | ======================================================================
+2026-04-09 20:41:03 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:03 | ERROR    | Error loading SEPLAT.csv: Could not parse SEPLAT.csv with any separator
+2026-04-09 20:41:03 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from SEPLAT.csv
+
+2026-04-09 20:41:04 | INFO     | 
+======================================================================
+2026-04-09 20:41:04 | INFO     | PROCESSING: AIRTEL
+2026-04-09 20:41:04 | INFO     | ======================================================================
+2026-04-09 20:41:04 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:04 | ERROR    | Error loading AIRTEL.csv: Could not parse AIRTEL.csv with any separator
+2026-04-09 20:41:04 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from AIRTEL.csv
+
+2026-04-09 20:41:05 | INFO     | 
+======================================================================
+2026-04-09 20:41:05 | INFO     | PROCESSING: INTERBREW
+2026-04-09 20:41:05 | INFO     | ======================================================================
+2026-04-09 20:41:05 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:05 | ERROR    | Error loading INTERBREW.csv: Could not parse INTERBREW.csv with any separator
+2026-04-09 20:41:05 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from INTERBREW.csv
+
+2026-04-09 20:41:06 | INFO     | 
+======================================================================
+2026-04-09 20:41:06 | INFO     | PROCESSING: FIRSTHOLDCO
+2026-04-09 20:41:06 | INFO     | ======================================================================
+2026-04-09 20:41:06 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:06 | ERROR    | Error loading FIRSTHOLDCO.csv: Could not parse FIRSTHOLDCO.csv with any separator
+2026-04-09 20:41:07 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from FIRSTHOLDCO.csv
+
+2026-04-09 20:41:08 | INFO     | 
+======================================================================
+2026-04-09 20:41:08 | INFO     | PROCESSING: ETI
+2026-04-09 20:41:08 | INFO     | ======================================================================
+2026-04-09 20:41:08 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:08 | ERROR    | Error loading ETI.csv: Could not parse ETI.csv with any separator
+2026-04-09 20:41:08 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from ETI.csv
+
+2026-04-09 20:41:09 | INFO     | 
+======================================================================
+2026-04-09 20:41:09 | INFO     | PROCESSING: ZENITH
+2026-04-09 20:41:09 | INFO     | ======================================================================
+2026-04-09 20:41:09 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:09 | ERROR    | Error loading ZENITH.csv: Could not parse ZENITH.csv with any separator
+2026-04-09 20:41:09 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from ZENITH.csv
+
+2026-04-09 20:41:10 | INFO     | 
+======================================================================
+2026-04-09 20:41:10 | INFO     | PROCESSING: CWG
+2026-04-09 20:41:10 | INFO     | ======================================================================
+2026-04-09 20:41:10 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:10 | ERROR    | Error loading CWG.csv: Could not parse CWG.csv with any separator
+2026-04-09 20:41:10 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from CWG.csv
+
+2026-04-09 20:41:11 | INFO     | 
+======================================================================
+2026-04-09 20:41:11 | INFO     | PROCESSING: NESTLE
+2026-04-09 20:41:11 | INFO     | ======================================================================
+2026-04-09 20:41:11 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:11 | ERROR    | Error loading NESTLE.csv: Could not parse NESTLE.csv with any separator
+2026-04-09 20:41:11 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from NESTLE.csv
+
+2026-04-09 20:41:12 | INFO     | 
+======================================================================
+2026-04-09 20:41:12 | INFO     | PROCESSING: NB
+2026-04-09 20:41:12 | INFO     | ======================================================================
+2026-04-09 20:41:12 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:12 | ERROR    | Error loading NB.csv: Could not parse NB.csv with any separator
+2026-04-09 20:41:12 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from NB.csv
+
+2026-04-09 20:41:13 | INFO     | 
+======================================================================
+2026-04-09 20:41:13 | INFO     | PROCESSING: ACCESS
+2026-04-09 20:41:13 | INFO     | ======================================================================
+2026-04-09 20:41:13 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:13 | ERROR    | Error loading ACCESS.csv: Could not parse ACCESS.csv with any separator
+2026-04-09 20:41:14 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from ACCESS.csv
+
+2026-04-09 20:41:15 | INFO     | 
+======================================================================
+2026-04-09 20:41:15 | INFO     | PROCESSING: WAPCO
+2026-04-09 20:41:15 | INFO     | ======================================================================
+2026-04-09 20:41:15 | INFO     | [1/9] Loading and validating data...
+2026-04-09 20:41:15 | ERROR    | Error loading WAPCO.csv: Could not parse WAPCO.csv with any separator
+2026-04-09 20:41:15 | ERROR    | Traceback (most recent call last):
+  File "C:\Users\DELL\Documents\NSE_Volatility_Project\src\main_pipeline.py", line 209, in process_single_stock
+    raise ValueError(f"Failed to load data from {filename}")
+ValueError: Failed to load data from WAPCO.csv
+
+2026-04-09 20:41:15 | INFO     | 
+======================================================================
+2026-04-09 20:41:15 | INFO     | CROSS-SECTIONAL ANALYSIS
+2026-04-09 20:41:15 | INFO     | ======================================================================
+2026-04-09 20:41:15 | WARNING  | Insufficient successful stocks for cross-sectional analysis
+2026-04-09 20:41:16 | INFO     |   - JSON: results/tables/project_report.json
+2026-04-09 20:41:16 | INFO     |   - Markdown: results/FINAL_REPORT.md
+2026-04-09 20:41:16 | INFO     | 
+================================================================================
+2026-04-09 20:41:16 | INFO     | PIPELINE COMPLETE
+2026-04-09 20:41:16 | INFO     | ================================================================================
+2026-04-09 20:41:16 | INFO     | Stocks processed: 0/15
+2026-04-09 20:41:16 | INFO     | Total time: 0.3 minutes
+2026-04-09 20:41:16 | INFO     | Average per stock: 0.0 minutes
+2026-04-09 20:41:16 | INFO     | ================================================================================
+2026-04-09 20:41:16 | INFO     | Outputs:
+2026-04-09 20:41:16 | INFO     | ================================================================================
+2026-04-09 20:41:16 | INFO     | Next steps:
+2026-04-09 20:41:16 | INFO     |   1. Review results/tables/FINAL_REPORT.md
+2026-04-09 20:41:16 | INFO     |   2. Check figures in results/figures/
+2026-04-09 20:41:16 | INFO     |   3. Launch dashboard: streamlit run app.py
+2026-04-09 20:41:16 | INFO     | ================================================================================

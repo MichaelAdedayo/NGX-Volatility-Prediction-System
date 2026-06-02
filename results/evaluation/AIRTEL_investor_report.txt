@@ -1,0 +1,32 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: AIRTEL
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     Ridge                 0.0141    0.9026     11.1%         MODE
+  2     Random Forest         0.0346    0.4148     11.1%         MODE
+  3     XGBoost               0.0608   -0.8009     11.1%          LOW
+  4     SVR                   0.1176   -5.7445      0.0%         HIGH
+  ------------------------------------------------------------------
+
+  BEST MODEL: Ridge
+     RMSE: 0.0141 | R2: 0.9026
+
+  STATISTICAL SIGNIFICANCE
+     * No statistically significant differences between top models
+
+  INVESTMENT RECOMMENDATION
+     Signal: HOLD / MAINTAIN
+
+     Current Volatility: 8.11%
+     Historical Percentile: 40.0%
+     Trend: Stable
+
+     ACTION: Normal market conditions. Stick to your strategy.
+     Horizon: Medium-term
+
+======================================================================

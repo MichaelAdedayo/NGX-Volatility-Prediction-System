@@ -1,0 +1,37 @@
+{
+  "guest": {
+    "salt": "9ed82d5d79663f6a9ab3a4622f37a236",
+    "hash": "e34fab39750647a859aa937b79a71dff21632044b086bf771decb249505c5d8e",
+    "iterations": 200000,
+    "role": "Guest",
+    "full_name": "Guest User"
+  },
+  "user": {
+    "salt": "d8504bd2fec37222beb691360b029f48",
+    "hash": "3e6b9034a62ebf33d04b874289309826c9cfb71deeda552c20372671c19c882b",
+    "iterations": 200000,
+    "role": "Analyst",
+    "full_name": "Research Analyst"
+  },
+  "michael": {
+    "salt": "477cc6f92a074d2e4fd0980741e05759",
+    "hash": "e97b69257c9421ca260c6ef61c7fe81efe7727f2994bf4b51c0b048be6b4ec73",
+    "iterations": 200000,
+    "role": "Administrator",
+    "full_name": "Adedayo Michael"
+  },
+  "admin": {
+    "salt": "1734d2aa1e82eef3796adf6292996b61",
+    "hash": "e653fe3f7dc7e963daf9c4ae5f77de74e399c774fa0cece538946bd0b0f24be7",
+    "iterations": 200000,
+    "role": "Administrator",
+    "full_name": "System Administrator"
+  },
+  "samuel": {
+    "salt": "99eff51083c9235018af35c3ddf84dbe",
+    "hash": "7155d76b29671b206902d14876ad260b7db91486fe692ac643681fa53b6dd7bb",
+    "iterations": 200000,
+    "role": "Analyst",
+    "full_name": "Samuel Adenigbagbe"
+  }
+}

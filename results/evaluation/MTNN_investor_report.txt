@@ -1,0 +1,35 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: MTNN
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     XGBoost               0.0501    0.6274     44.4%         MODE
+  2     Random Forest         0.0569    0.5196     44.4%         HIGH
+  3     Ridge                 0.0760    0.1434     55.6%         HIGH
+  4     SVR                   0.1298   -1.4986     44.4%         HIGH
+  ------------------------------------------------------------------
+
+  BEST MODEL: XGBoost
+     RMSE: 0.0501 | R2: 0.6274
+
+  STATISTICAL SIGNIFICANCE
+     * 3 model pairs show significant differences
+       - Random Forest beats SVR
+       - XGBoost beats SVR
+       - Ridge beats SVR
+
+  INVESTMENT RECOMMENDATION
+     Signal: HOLD / MAINTAIN
+
+     Current Volatility: 46.91%
+     Historical Percentile: 60.0%
+     Trend: Stable
+
+     ACTION: Normal market conditions. Stick to your strategy.
+     Horizon: Medium-term
+
+======================================================================

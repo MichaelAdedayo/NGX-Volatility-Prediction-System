@@ -1,0 +1,7 @@
+Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
+FIRSTHOLDCO,Random Forest,XGBoost,mse,5.862472263046069,4.560257949037805e-09,True,XGBoost,0.006982826351516212,"XGBoost is significantly better (DM=5.862, p=0.0000)"
+FIRSTHOLDCO,Random Forest,Ridge,mse,6.237320733515909,4.451288226903216e-10,True,Ridge,0.007234652213327327,"Ridge is significantly better (DM=6.237, p=0.0000)"
+FIRSTHOLDCO,Random Forest,SVR,mse,-4.390866910451995,1.1289963153027216e-05,True,Random Forest,-0.026342513576338475,"Random Forest is significantly better (DM=-4.391, p=0.0000)"
+FIRSTHOLDCO,XGBoost,Ridge,mse,0.5631649026559711,0.5733225997514528,False,Ridge,0.0002518258618111141,No significant difference between XGBoost and Ridge (p=0.5733)
+FIRSTHOLDCO,XGBoost,SVR,mse,-5.722531834372467,1.049481723747192e-08,True,XGBoost,-0.03332533992785469,"XGBoost is significantly better (DM=-5.723, p=0.0000)"
+FIRSTHOLDCO,Ridge,SVR,mse,-5.708835423141144,1.1375181685480129e-08,True,Ridge,-0.0335771657896658,"Ridge is significantly better (DM=-5.709, p=0.0000)"

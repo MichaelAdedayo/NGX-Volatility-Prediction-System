@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+ETI,Random Forest,32.63154979782351,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,3.0551562824761054,Long-term favorable
+ETI,XGBoost,36.007798,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.7694848630758373,Long-term favorable
+ETI,Ridge,32.527224562046584,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,3.0649251152157264,Long-term favorable
+ETI,SVR,29.92453652050635,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,3.330609281235744,Long-term favorable

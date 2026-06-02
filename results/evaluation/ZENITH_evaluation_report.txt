@@ -1,0 +1,50 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: ZENITH
+Generated: 2026-04-09 21:41:30
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+ Stock  Rank         Model     RMSE      MAE      MAPE        R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+ZENITH     1         Ridge 0.039129 0.025709  9.172991  0.943889             64.331210 -1.410239  0.006446 0.955794
+ZENITH     2       XGBoost 0.045295 0.035105 13.750781  0.924815             63.057325 -1.422582 -0.060820 1.154588
+ZENITH     3 Random Forest 0.052196 0.040707 16.653495  0.900158             59.872611 -1.411121 -0.025520 0.987311
+ZENITH     4           SVR 0.209931 0.167120 80.723790 -0.615072             52.229299 -0.982398 -0.093334 0.859774
+
+BEST PERFORMING MODEL: Ridge
+  Primary Metric (RMSE): 0.039129
+  Secondary Metric (R2):  0.9439
+  Directional Accuracy:    64.33%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+Significant differences found in 4 comparisons:
+  * Ridge is significantly better (DM=4.748, p=0.0000)
+  * Random Forest is significantly better (DM=-6.010, p=0.0000)
+  * XGBoost is significantly better (DM=-6.125, p=0.0000)
+  * Ridge is significantly better (DM=-6.152, p=0.0000)
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.0255 OK      0.9873 OK
+XGBoost          -0.0608 XX      1.1546 XX
+Ridge             0.0064 OK      0.9558 OK
+SVR              -0.0933 XX      0.8598 XX
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    64.13%
+Historical Percentile: 98.1%
+Risk Level:            VERY HIGH
+Recommendation:        AVOID or REDUCE POSITION
+Action:                Consider selling or hedging. Volatility is in top 20% historically.
+Trend:                 Rising
+Investment Horizon:    Short-term only
+
+================================================================================
+END OF REPORT
+================================================================================

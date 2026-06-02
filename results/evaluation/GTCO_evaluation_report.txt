@@ -1,0 +1,49 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: GTCO
+Generated: 2026-04-09 21:41:29
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+Stock  Rank         Model     RMSE      MAE      MAPE       R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+ GTCO     1 Random Forest 0.026796 0.023193  9.486109 0.934014                  48.0 -1.632349 -0.068443 1.206054
+ GTCO     2         Ridge 0.032320 0.024988  9.936564 0.904004                  52.0 -1.599624  0.034013 0.950828
+ GTCO     3       XGBoost 0.033771 0.028775 11.456905 0.895195                  48.0 -1.624561 -0.087923 1.255597
+ GTCO     4           SVR 0.100109 0.093167 37.612767 0.079006                  60.0 -1.463818 -0.113958 1.159198
+
+BEST PERFORMING MODEL: Random Forest
+  Primary Metric (RMSE): 0.026796
+  Secondary Metric (R2):  0.9340
+  Directional Accuracy:    48.00%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+Significant differences found in 3 comparisons:
+  * Random Forest is significantly better (DM=-5.286, p=0.0000)
+  * XGBoost is significantly better (DM=-4.969, p=0.0000)
+  * Ridge is significantly better (DM=-4.497, p=0.0000)
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.0684 XX      1.2061 XX
+XGBoost          -0.0879 XX      1.2556 XX
+Ridge             0.0340 OK      0.9508 OK
+SVR              -0.1140 XX      1.1592 XX
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    34.78%
+Historical Percentile: 76.9%
+Risk Level:            HIGH
+Recommendation:        CAUTION
+Action:                Reduce position size. Use stop-loss orders.
+Trend:                 Rising
+Investment Horizon:    Medium-term with hedging
+
+================================================================================
+END OF REPORT
+================================================================================

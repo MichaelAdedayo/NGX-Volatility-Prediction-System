@@ -1,0 +1,35 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: NB
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     Random Forest         0.0193    0.7836     66.7%          LOW
+  2     XGBoost               0.0247    0.6469     77.8%          LOW
+  3     Ridge                 0.0562   -0.8303     77.8%          LOW
+  4     SVR                   0.1237   -7.8699     77.8%         HIGH
+  ------------------------------------------------------------------
+
+  BEST MODEL: Random Forest
+     RMSE: 0.0193 | R2: 0.7836
+
+  STATISTICAL SIGNIFICANCE
+     * 5 model pairs show significant differences
+       - Random Forest beats Ridge
+       - Random Forest beats SVR
+       - XGBoost beats Ridge
+
+  INVESTMENT RECOMMENDATION
+     Signal: FAVORABLE ENTRY
+
+     Current Volatility: 21.10%
+     Historical Percentile: 10.0%
+     Trend: Stable
+
+     ACTION: Good time to accumulate. Low volatility environment.
+     Horizon: Long-term favorable
+
+======================================================================

@@ -1,0 +1,35 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: WAPCO
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     Ridge                 0.0258    0.9407     66.7%         MODE
+  2     XGBoost               0.0496    0.7812     66.7%         MODE
+  3     Random Forest         0.0610    0.6687     55.6%          LOW
+  4     SVR                   0.1479   -0.9463     66.7%         MODE
+  ------------------------------------------------------------------
+
+  BEST MODEL: Ridge
+     RMSE: 0.0258 | R2: 0.9407
+
+  STATISTICAL SIGNIFICANCE
+     * 3 model pairs show significant differences
+       - Random Forest beats SVR
+       - XGBoost beats SVR
+       - Ridge beats SVR
+
+  INVESTMENT RECOMMENDATION
+     Signal: HOLD / MAINTAIN
+
+     Current Volatility: 32.91%
+     Historical Percentile: 40.0%
+     Trend: Stable
+
+     ACTION: Normal market conditions. Stick to your strategy.
+     Horizon: Medium-term
+
+======================================================================

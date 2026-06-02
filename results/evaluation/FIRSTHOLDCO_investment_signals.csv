@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+FIRSTHOLDCO,Random Forest,65.18974932348218,62.068965517241374,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Falling,1.5316340012969523,Medium-term with hedging
+FIRSTHOLDCO,XGBoost,51.337075,55.172413793103445,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Falling,1.944122989108537,Medium-term
+FIRSTHOLDCO,Ridge,53.592911317064505,60.34482758620689,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Falling,1.8624432452448956,Medium-term
+FIRSTHOLDCO,SVR,69.68907681083937,72.41379310344827,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Falling,1.4328889930876458,Medium-term with hedging

@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+DANGSUG,Random Forest,33.89004282024994,40.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,2.942038070644145,Medium-term
+DANGSUG,XGBoost,32.741824,30.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,3.044897871689465,Medium-term
+DANGSUG,Ridge,28.93528175107828,40.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,3.44408574565619,Medium-term
+DANGSUG,SVR,37.93190344183965,30.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,2.6293714210997923,Medium-term

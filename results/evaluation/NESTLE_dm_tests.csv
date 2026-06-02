@@ -1,0 +1,7 @@
+Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
+NESTLE,Random Forest,XGBoost,mse,1.2424437884060562,0.21407286803405912,False,XGBoost,0.0021177946974886286,No significant difference between Random Forest and XGBoost (p=0.2141)
+NESTLE,Random Forest,Ridge,mse,-1.0344282623331031,0.30093599760838385,False,Random Forest,-0.05009810306199723,No significant difference between Random Forest and Ridge (p=0.3009)
+NESTLE,Random Forest,SVR,mse,-1.5065236745929167,0.1319327943155546,False,Random Forest,-0.022188987680042568,No significant difference between Random Forest and SVR (p=0.1319)
+NESTLE,XGBoost,Ridge,mse,-1.0776173570153516,0.28120455305825853,False,XGBoost,-0.05221589775948586,No significant difference between XGBoost and Ridge (p=0.2812)
+NESTLE,XGBoost,SVR,mse,-1.8360932060272233,0.06634387294234267,False,XGBoost,-0.024306782377531196,No significant difference between XGBoost and SVR (p=0.0663)
+NESTLE,Ridge,SVR,mse,0.502824870448507,0.6150874062802683,False,SVR,0.027909115381954668,No significant difference between Ridge and SVR (p=0.6151)

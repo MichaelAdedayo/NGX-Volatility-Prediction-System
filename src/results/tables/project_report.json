@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "timestamp": "2026-04-25T08:34:45.699948",
+    "total": 14,
+    "successful": 0,
+    "failed": 14,
+    "success_rate": 0.0
+  },
+  "stocks": [
+    {
+      "stock_name": "DANGCEM",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.221703
+    },
+    {
+      "stock_name": "MTNN",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.193084
+    },
+    {
+      "stock_name": "GTCO",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.183123
+    },
+    {
+      "stock_name": "SEPLAT",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.191646
+    },
+    {
+      "stock_name": "AIRTEL",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.197589
+    },
+    {
+      "stock_name": "INTERBREW",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.205258
+    },
+    {
+      "stock_name": "FIRSTHOLDCO",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.178101
+    },
+    {
+      "stock_name": "ETI",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.176516
+    },
+    {
+      "stock_name": "ZENITH",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.184935
+    },
+    {
+      "stock_name": "CWG",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.146747
+    },
+    {
+      "stock_name": "NESTLE",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.19202
+    },
+    {
+      "stock_name": "NB",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.179777
+    },
+    {
+      "stock_name": "ACCESS",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.13324
+    },
+    {
+      "stock_name": "WAPCO",
+      "success": false,
+      "error_message": "Failed to load data",
+      "data_points": 0,
+      "test_rmse": null,
+      "test_mape": null,
+      "directional_accuracy": null,
+      "best_model": null,
+      "processing_time": 0.185283
+    }
+  ]
+}

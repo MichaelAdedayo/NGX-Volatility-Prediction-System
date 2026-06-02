@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+AIRTEL,Random Forest,12.24211379384012,30.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,8.10233981555975,Medium-term
+AIRTEL,XGBoost,16.094705,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,6.174857769869843,Long-term favorable
+AIRTEL,Ridge,8.11172318973864,40.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,12.177711996546583,Medium-term
+AIRTEL,SVR,21.68970781051398,70.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,4.589322668739411,Medium-term with hedging

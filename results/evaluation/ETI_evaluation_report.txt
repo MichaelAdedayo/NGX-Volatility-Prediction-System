@@ -1,0 +1,47 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: ETI
+Generated: 2026-04-09 21:41:30
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+Stock  Rank         Model     RMSE      MAE      MAPE       R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+  ETI     1       XGBoost 0.040261 0.034282  7.538020 0.891773             77.777778 -0.340595 -0.163388 1.293360
+  ETI     2         Ridge 0.040851 0.036413  7.111820 0.888579             66.666667 -0.344028 -0.057886 1.118889
+  ETI     3 Random Forest 0.047968 0.038154  7.203558 0.846372             66.666667 -0.340430 -0.096973 1.205524
+  ETI     4           SVR 0.087390 0.069541 11.660214 0.490093             66.666667 -0.299722 -0.184708 1.550416
+
+BEST PERFORMING MODEL: XGBoost
+  Primary Metric (RMSE): 0.040261
+  Secondary Metric (R2):  0.8918
+  Directional Accuracy:    77.78%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+Significant differences found in 1 comparisons:
+  * Random Forest is significantly better (DM=-1.992, p=0.0464)
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.0970 XX      1.2055 XX
+XGBoost          -0.1634 XX      1.2934 XX
+Ridge            -0.0579 XX      1.1189 XX
+SVR              -0.1847 XX      1.5504 XX
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    36.01%
+Historical Percentile: 20.0%
+Risk Level:            LOW
+Recommendation:        FAVORABLE ENTRY
+Action:                Good time to accumulate. Low volatility environment.
+Trend:                 Stable
+Investment Horizon:    Long-term favorable
+
+================================================================================
+END OF REPORT
+================================================================================

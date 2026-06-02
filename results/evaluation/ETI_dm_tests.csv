@@ -1,0 +1,7 @@
+Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
+ETI,Random Forest,XGBoost,mse,0.7771965233983118,0.4370428330578635,False,XGBoost,0.0006799885116147944,No significant difference between Random Forest and XGBoost (p=0.4370)
+ETI,Random Forest,Ridge,mse,0.7698450259604871,0.44139182714465175,False,Ridge,0.0006321557224314435,No significant difference between Random Forest and Ridge (p=0.4414)
+ETI,Random Forest,SVR,mse,-1.9917293903944158,0.046400757181706,True,Random Forest,-0.005336118638300741,"Random Forest is significantly better (DM=-1.992, p=0.0464)"
+ETI,XGBoost,Ridge,mse,-0.049837908580540186,0.9602515575253407,False,XGBoost,-4.783278918335087e-05,No significant difference between XGBoost and Ridge (p=0.9603)
+ETI,XGBoost,SVR,mse,-1.7244465985662887,0.0846272514521218,False,XGBoost,-0.006016107149915535,No significant difference between XGBoost and SVR (p=0.0846)
+ETI,Ridge,SVR,mse,-1.9425824630117983,0.0520666274995325,False,Ridge,-0.0059682743607321845,No significant difference between Ridge and SVR (p=0.0521)

@@ -1,0 +1,5 @@
+Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
+SEPLAT,Random Forest,44.36963732483573,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.248725332962211,Long-term favorable
+SEPLAT,XGBoost,35.724129999999995,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.7914146135579565,Long-term favorable
+SEPLAT,Ridge,40.97684277571944,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.4344616879637617,Long-term favorable
+SEPLAT,SVR,36.85557118811752,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.7059519521688093,Long-term favorable

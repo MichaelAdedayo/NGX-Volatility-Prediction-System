@@ -1,0 +1,50 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: INTERBREW
+Generated: 2026-04-09 21:41:30
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+    Stock  Rank         Model     RMSE      MAE      MAPE        R2  Directional_Accuracy     QLIKE  MZ_Alpha   MZ_Beta
+INTERBREW     1         Ridge 0.022706 0.020488  4.730969  0.712381             55.555556 -0.703424 -0.020459  1.095392
+INTERBREW     2 Random Forest 0.028243 0.022587  5.601345  0.554978             66.666667 -0.700276 -0.531247  2.203317
+INTERBREW     3       XGBoost 0.046160 0.039921  9.891131 -0.188699             77.777778 -0.686711  0.854882 -0.971222
+INTERBREW     4           SVR 0.098718 0.091588 22.437289 -4.436724             55.555556 -0.629584 -0.138221  1.089827
+
+BEST PERFORMING MODEL: Ridge
+  Primary Metric (RMSE): 0.022706
+  Secondary Metric (R2):  0.7124
+  Directional Accuracy:    55.56%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+Significant differences found in 4 comparisons:
+  * Random Forest is significantly better (DM=-2.037, p=0.0416)
+  * Random Forest is significantly better (DM=-2.924, p=0.0035)
+  * XGBoost is significantly better (DM=-3.031, p=0.0024)
+  * Ridge is significantly better (DM=-2.627, p=0.0086)
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.5312 XX      2.2033 XX
+XGBoost           0.8549 XX     -0.9712 XX
+Ridge            -0.0205 OK      1.0954 OK
+SVR              -0.1382 XX      1.0898 OK
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    36.36%
+Historical Percentile: 20.0%
+Risk Level:            LOW
+Recommendation:        FAVORABLE ENTRY
+Action:                Good time to accumulate. Low volatility environment.
+Trend:                 Stable
+Investment Horizon:    Long-term favorable
+
+================================================================================
+END OF REPORT
+================================================================================

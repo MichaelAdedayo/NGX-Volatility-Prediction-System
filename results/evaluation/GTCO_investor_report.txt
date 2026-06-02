@@ -1,0 +1,35 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: GTCO
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     Random Forest         0.0268    0.9340     48.0%         HIGH
+  2     Ridge                 0.0323    0.9040     52.0%         VERY
+  3     XGBoost               0.0338    0.8952     48.0%         HIGH
+  4     SVR                   0.1001    0.0790     60.0%         VERY
+  ------------------------------------------------------------------
+
+  BEST MODEL: Random Forest
+     RMSE: 0.0268 | R2: 0.9340
+
+  STATISTICAL SIGNIFICANCE
+     * 3 model pairs show significant differences
+       - Random Forest beats SVR
+       - XGBoost beats SVR
+       - Ridge beats SVR
+
+  INVESTMENT RECOMMENDATION
+     Signal: CAUTION
+
+     Current Volatility: 34.78%
+     Historical Percentile: 76.9%
+     Trend: Rising
+
+     ACTION: Reduce position size. Use stop-loss orders.
+     Horizon: Medium-term with hedging
+
+======================================================================

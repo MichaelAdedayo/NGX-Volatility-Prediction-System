@@ -1,0 +1,7 @@
+Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
+NB,Random Forest,XGBoost,mse,-0.7591920990932772,0.4477376516853655,False,Random Forest,-0.00023612699584550024,No significant difference between Random Forest and XGBoost (p=0.4477)
+NB,Random Forest,Ridge,mse,-2.233410161209182,0.025521908716249486,True,Random Forest,-0.0027865138013515285,"Random Forest is significantly better (DM=-2.233, p=0.0255)"
+NB,Random Forest,SVR,mse,-4.042477125601508,5.2889473622252936e-05,True,Random Forest,-0.014940092688154155,"Random Forest is significantly better (DM=-4.042, p=0.0001)"
+NB,XGBoost,Ridge,mse,-2.2283205905239942,0.025859144229336994,True,XGBoost,-0.002550386805506028,"XGBoost is significantly better (DM=-2.228, p=0.0259)"
+NB,XGBoost,SVR,mse,-4.082615876852369,4.4531595170482774e-05,True,XGBoost,-0.014703965692308658,"XGBoost is significantly better (DM=-4.083, p=0.0000)"
+NB,Ridge,SVR,mse,-3.846483341752899,0.00011982527349019279,True,Ridge,-0.012153578886802628,"Ridge is significantly better (DM=-3.846, p=0.0001)"

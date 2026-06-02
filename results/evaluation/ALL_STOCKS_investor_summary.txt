@@ -1,0 +1,26 @@
+
+======================================================================
+  COMPREHENSIVE EVALUATION & INVESTMENT ANALYSIS
+  NSE Volatility Prediction - All 15 Stocks
+======================================================================
+
+======================================================================
+  CROSS-STOCK INVESTMENT SUMMARY
+======================================================================
+
+  RISK DISTRIBUTION:
+     * Lower Risk (RMSE < median): 7 stocks
+       DANGCEM, SEPLAT, AIRTEL, INTERBREW, CWG, NB, WAPCO
+
+     * Higher Risk (RMSE >= median): 8 stocks
+       DANGSUG, MTNN, GTCO, FIRSTHOLDCO, ETI, ZENITH, NESTLE, ACCESS
+
+  MOST EFFECTIVE MODELS:
+     * Ridge: 8/15 stocks (53.3%)
+     * Random Forest: 3/15 stocks (20.0%)
+     * XGBoost: 3/15 stocks (20.0%)
+     * SVR: 1/15 stocks (6.7%)
+
+  Saved to: results/evaluation/
+
+======================================================================

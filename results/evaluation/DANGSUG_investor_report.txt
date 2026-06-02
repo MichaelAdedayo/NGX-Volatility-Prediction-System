@@ -1,0 +1,32 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: DANGSUG
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     Ridge                 0.0411    0.7745     66.7%         MODE
+  2     XGBoost               0.0480    0.6923     88.9%         MODE
+  3     Random Forest         0.0498    0.6681     77.8%         MODE
+  4     SVR                   0.0680    0.3809     66.7%         MODE
+  ------------------------------------------------------------------
+
+  BEST MODEL: Ridge
+     RMSE: 0.0411 | R2: 0.7745
+
+  STATISTICAL SIGNIFICANCE
+     * No statistically significant differences between top models
+
+  INVESTMENT RECOMMENDATION
+     Signal: HOLD / MAINTAIN
+
+     Current Volatility: 28.94%
+     Historical Percentile: 40.0%
+     Trend: Stable
+
+     ACTION: Normal market conditions. Stick to your strategy.
+     Horizon: Medium-term
+
+======================================================================

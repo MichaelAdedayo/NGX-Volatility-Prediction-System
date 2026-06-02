@@ -1,0 +1,7 @@
+Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
+AIRTEL,Random Forest,XGBoost,mse,-1.7175705683212301,0.08587497250072729,False,Random Forest,-0.0024931077333563735,No significant difference between Random Forest and XGBoost (p=0.0859)
+AIRTEL,Random Forest,Ridge,mse,1.5077290142034743,0.13162389652229378,False,Ridge,0.0010004950806642159,No significant difference between Random Forest and Ridge (p=0.1316)
+AIRTEL,Random Forest,SVR,mse,-1.715736471555974,0.08621028625712612,False,Random Forest,-0.012631635405595639,No significant difference between Random Forest and SVR (p=0.0862)
+AIRTEL,XGBoost,Ridge,mse,1.653823535242075,0.09816337253731433,False,Ridge,0.00349360281402059,No significant difference between XGBoost and Ridge (p=0.0982)
+AIRTEL,XGBoost,SVR,mse,-1.7135666024535017,0.08660835161379876,False,XGBoost,-0.010138527672239262,No significant difference between XGBoost and SVR (p=0.0866)
+AIRTEL,Ridge,SVR,mse,-1.7033987285305399,0.08849347549598097,False,Ridge,-0.013632130486259855,No significant difference between Ridge and SVR (p=0.0885)

@@ -1,0 +1,21 @@
+Model,Feature,Importance
+XGBoost,hist_vol_21d,0.517458975315094
+XGBoost,realized_vol_21d,0.3099881112575531
+Random Forest,realized_vol_21d,0.120932661013355
+Random Forest,hist_vol_21d,0.10399290332150571
+Random Forest,hist_vol_21d_lag_2,0.07711607653199702
+Random Forest,hist_vol_21d_lag_1,0.0740328601949053
+Random Forest,hist_vol_21d_lag_3,0.06690788154232412
+Random Forest,high_vol_regime,0.06423095513226482
+Random Forest,hist_vol_21d_lag_5,0.05012099962932639
+Random Forest,bb_width_lag_5,0.0435207666362055
+Random Forest,hist_vol_63d,0.0389204547943879
+Random Forest,bb_width_lag_3,0.03849057544028589
+Random Forest,bb_width_lag_1,0.038475139225472736
+XGBoost,hist_vol_21d_lag_1,0.03620345890522003
+Random Forest,bb_width_lag_2,0.03322344532448975
+Random Forest,bb_width_lag_10,0.030983666683344756
+Random Forest,atr_14_lag_5,0.0263228740220196
+XGBoost,atr_14_lag_3,0.019358180463314056
+Random Forest,bb_width,0.018921237386617544
+Random Forest,atr_14_lag_2,0.014333349330177728

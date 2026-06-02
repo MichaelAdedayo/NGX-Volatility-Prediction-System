@@ -1,0 +1,46 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: AIRTEL
+Generated: 2026-04-09 21:41:29
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+ Stock  Rank         Model     RMSE      MAE       MAPE        R2  Directional_Accuracy     QLIKE  MZ_Alpha   MZ_Beta
+AIRTEL     1         Ridge 0.014133 0.011602  12.627527  0.902609             11.111111 -3.224856  0.009678  0.907392
+AIRTEL     2 Random Forest 0.034644 0.026530  34.502535  0.414762             11.111111 -3.144104 -0.171047  1.960042
+AIRTEL     3       XGBoost 0.060773 0.046349  60.388498 -0.800893             11.111111 -2.964042 -0.800644  5.427879
+AIRTEL     4           SVR 0.117609 0.093693 116.075909 -5.744501              0.000000 -2.622001  0.226678 -0.514983
+
+BEST PERFORMING MODEL: Ridge
+  Primary Metric (RMSE): 0.014133
+  Secondary Metric (R2):  0.9026
+  Directional Accuracy:    11.11%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+  No statistically significant differences detected at alpha=0.05
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.1710 XX      1.9600 XX
+XGBoost          -0.8006 XX      5.4279 XX
+Ridge             0.0097 OK      0.9074 OK
+SVR               0.2267 XX     -0.5150 XX
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    8.11%
+Historical Percentile: 40.0%
+Risk Level:            MODERATE
+Recommendation:        HOLD / MAINTAIN
+Action:                Normal market conditions. Stick to your strategy.
+Trend:                 Stable
+Investment Horizon:    Medium-term
+
+================================================================================
+END OF REPORT
+================================================================================

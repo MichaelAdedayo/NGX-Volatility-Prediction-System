@@ -1,0 +1,46 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: DANGSUG
+Generated: 2026-04-09 21:41:29
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+  Stock  Rank         Model     RMSE      MAE      MAPE       R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+DANGSUG     1         Ridge 0.041054 0.033197  9.058176 0.774519             66.666667 -1.047209  0.065791 0.809524
+DANGSUG     2       XGBoost 0.047960 0.041040 13.255138 0.692282             88.888889 -1.032953 -0.173822 1.470471
+DANGSUG     3 Random Forest 0.049811 0.039707 13.723836 0.668067             77.777778 -1.028528 -0.174416 1.391124
+DANGSUG     4           SVR 0.068026 0.057737 18.557652 0.380922             66.666667 -1.007577 -0.087854 1.098388
+
+BEST PERFORMING MODEL: Ridge
+  Primary Metric (RMSE): 0.041054
+  Secondary Metric (R2):  0.7745
+  Directional Accuracy:    66.67%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+  No statistically significant differences detected at alpha=0.05
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.1744 XX      1.3911 XX
+XGBoost          -0.1738 XX      1.4705 XX
+Ridge             0.0658 XX      0.8095 XX
+SVR              -0.0879 XX      1.0984 OK
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    28.94%
+Historical Percentile: 40.0%
+Risk Level:            MODERATE
+Recommendation:        HOLD / MAINTAIN
+Action:                Normal market conditions. Stick to your strategy.
+Trend:                 Stable
+Investment Horizon:    Medium-term
+
+================================================================================
+END OF REPORT
+================================================================================

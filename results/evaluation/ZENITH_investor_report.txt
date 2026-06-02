@@ -1,0 +1,35 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: ZENITH
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     Ridge                 0.0391    0.9439     64.3%         VERY
+  2     XGBoost               0.0453    0.9248     63.1%         VERY
+  3     Random Forest         0.0522    0.9002     59.9%         VERY
+  4     SVR                   0.2099   -0.6151     52.2%         VERY
+  ------------------------------------------------------------------
+
+  BEST MODEL: Ridge
+     RMSE: 0.0391 | R2: 0.9439
+
+  STATISTICAL SIGNIFICANCE
+     * 4 model pairs show significant differences
+       - Ridge beats Random Forest
+       - Random Forest beats SVR
+       - XGBoost beats SVR
+
+  INVESTMENT RECOMMENDATION
+     Signal: AVOID or REDUCE POSITION
+
+     Current Volatility: 64.13%
+     Historical Percentile: 98.1%
+     Trend: Rising
+
+     ACTION: Consider selling or hedging. Volatility is in top 20% historically.
+     Horizon: Short-term only
+
+======================================================================

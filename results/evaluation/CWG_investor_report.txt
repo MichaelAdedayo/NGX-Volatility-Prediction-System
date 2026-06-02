@@ -1,0 +1,32 @@
+
+======================================================================
+  EVALUATION & INVESTMENT ANALYSIS: CWG
+======================================================================
+
+  MODEL PERFORMANCE RANKING
+  ------------------------------------------------------------------
+  Rank  Model                   RMSE        R2   Dir.Acc        Risk
+  ------------------------------------------------------------------
+  1     SVR                   0.0265    0.3758     66.7%          LOW
+  2     Random Forest         0.0296    0.2228     44.4%          LOW
+  3     XGBoost               0.0298    0.2118     55.6%          LOW
+  4     Ridge                 0.0384   -0.3113     22.2%          LOW
+  ------------------------------------------------------------------
+
+  BEST MODEL: SVR
+     RMSE: 0.0265 | R2: 0.3758
+
+  STATISTICAL SIGNIFICANCE
+     * No statistically significant differences between top models
+
+  INVESTMENT RECOMMENDATION
+     Signal: FAVORABLE ENTRY
+
+     Current Volatility: 42.27%
+     Historical Percentile: 10.0%
+     Trend: Stable
+
+     ACTION: Good time to accumulate. Low volatility environment.
+     Horizon: Long-term favorable
+
+======================================================================

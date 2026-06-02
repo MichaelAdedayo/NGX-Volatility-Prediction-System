@@ -1,0 +1,49 @@
+================================================================================
+VOLATILITY FORECAST EVALUATION REPORT
+Stock: WAPCO
+Generated: 2026-04-09 21:41:31
+================================================================================
+
+TABLE 1: MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+Stock  Rank         Model     RMSE      MAE      MAPE        R2  Directional_Accuracy     QLIKE  MZ_Alpha  MZ_Beta
+WAPCO     1         Ridge 0.025820 0.020001  5.607549  0.940703             66.666667 -0.895142  0.023365 0.929689
+WAPCO     2       XGBoost 0.049598 0.029429  9.108851  0.781206             66.666667 -0.876227 -0.010265 0.982892
+WAPCO     3 Random Forest 0.061029 0.045783 13.822678  0.668728             55.555556 -0.858930 -0.098822 1.161637
+WAPCO     4           SVR 0.147927 0.125217 37.694736 -0.946264             66.666667 -0.709070 -0.507928 1.730527
+
+BEST PERFORMING MODEL: Ridge
+  Primary Metric (RMSE): 0.025820
+  Secondary Metric (R2):  0.9407
+  Directional Accuracy:    66.67%
+
+TABLE 2: DIEBOLD-MARIANO TEST RESULTS
+--------------------------------------------------------------------------------
+(Testing statistical significance of performance differences)
+
+Significant differences found in 3 comparisons:
+  * Random Forest is significantly better (DM=-2.340, p=0.0193)
+  * XGBoost is significantly better (DM=-2.478, p=0.0132)
+  * Ridge is significantly better (DM=-2.862, p=0.0042)
+
+TABLE 3: FORECAST OPTIMALITY (MINCER-ZARNOWITZ)
+--------------------------------------------------------------------------------
+Model         Alpha (should~0)    Beta (should~1)
+Random Forest    -0.0988 XX      1.1616 XX
+XGBoost          -0.0103 OK      0.9829 OK
+Ridge             0.0234 OK      0.9297 OK
+SVR              -0.5079 XX      1.7305 XX
+
+TABLE 4: INVESTMENT SIGNALS (Based on Best Model)
+--------------------------------------------------------------------------------
+Current Volatility:    32.91%
+Historical Percentile: 40.0%
+Risk Level:            MODERATE
+Recommendation:        HOLD / MAINTAIN
+Action:                Normal market conditions. Stick to your strategy.
+Trend:                 Stable
+Investment Horizon:    Medium-term
+
+================================================================================
+END OF REPORT
+================================================================================
