@@ -549,7 +549,7 @@ def render_login_page():
                 st.session_state.login_error = None
                 st.rerun()
             else:
-                st.session_state.login_error = "Invalid username or password. Please try again."
+                st.session_state.login_error = "Invalid username or password. Please try again soon."
                 st.rerun()
 
 
