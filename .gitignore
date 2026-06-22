@@ -1,0 +1,40 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Build / distribution
+dist/
+build/
+*.egg-info/
+
+# Project-specific generated outputs
+results/
+models/
+
+# Optional large data directories if you do not want datasets in Git
+# Uncomment if datasets are regenerated or too large for repository
+# data/raw/
+# data/processed/
