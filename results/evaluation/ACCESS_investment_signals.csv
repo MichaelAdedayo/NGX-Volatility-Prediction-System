@@ -1,5 +1,0 @@
-Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
-ACCESS,Random Forest,33.077591535186016,35.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Falling,3.014082559125681,Medium-term
-ACCESS,XGBoost,29.960072,30.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Falling,3.326672005309901,Medium-term
-ACCESS,Ridge,31.25379436309812,35.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Falling,3.189406642205165,Medium-term
-ACCESS,SVR,31.20112298334483,21.666666666666668,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Falling,3.1947735566295656,Medium-term

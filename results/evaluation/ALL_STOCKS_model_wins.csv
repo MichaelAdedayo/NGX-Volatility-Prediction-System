@@ -1,5 +1,0 @@
-Model,Stocks_Won,Percentage
-Ridge,8,53.3
-Random Forest,3,20.0
-XGBoost,3,20.0
-SVR,1,6.7

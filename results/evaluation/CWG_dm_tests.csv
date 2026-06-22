@@ -1,7 +1,0 @@
-Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
-CWG,Random Forest,XGBoost,mse,-0.05881067862394167,0.9531029028723188,False,Random Forest,-1.244711213288772e-05,No significant difference between Random Forest and XGBoost (p=0.9531)
-CWG,Random Forest,Ridge,mse,-0.7203371128972615,0.471317459489478,False,Random Forest,-0.0006018051397549806,No significant difference between Random Forest and Ridge (p=0.4713)
-CWG,Random Forest,SVR,mse,0.5501591055912928,0.5822102497821633,False,SVR,0.00017233252306661577,No significant difference between Random Forest and SVR (p=0.5822)
-CWG,XGBoost,Ridge,mse,-0.8486262266359039,0.3960893085766337,False,XGBoost,-0.0005893580276220928,No significant difference between XGBoost and Ridge (p=0.3961)
-CWG,XGBoost,SVR,mse,1.446021429499185,0.1481711913416497,False,SVR,0.00018477963519950352,No significant difference between XGBoost and SVR (p=0.1482)
-CWG,Ridge,SVR,mse,1.289311324125264,0.19728987568297507,False,SVR,0.0007741376628215966,No significant difference between Ridge and SVR (p=0.1973)

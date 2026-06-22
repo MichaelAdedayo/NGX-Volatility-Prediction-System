@@ -1,7 +1,0 @@
-Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
-INTERBREW,Random Forest,XGBoost,mse,-2.0370067481214447,0.04164936577364875,True,Random Forest,-0.0013330244196198856,"Random Forest is significantly better (DM=-2.037, p=0.0416)"
-INTERBREW,Random Forest,Ridge,mse,0.565354222117257,0.5718328549492171,False,Ridge,0.0002821401332777589,No significant difference between Random Forest and Ridge (p=0.5718)
-INTERBREW,Random Forest,SVR,mse,-2.9238433662295025,0.0034573867281113557,True,Random Forest,-0.008947512606169364,"Random Forest is significantly better (DM=-2.924, p=0.0035)"
-INTERBREW,XGBoost,Ridge,mse,1.5631296805576382,0.11802209572843103,False,Ridge,0.0016151645528976444,No significant difference between XGBoost and Ridge (p=0.1180)
-INTERBREW,XGBoost,SVR,mse,-3.031042217239096,0.0024371116952106586,True,XGBoost,-0.007614488186549478,"XGBoost is significantly better (DM=-3.031, p=0.0024)"
-INTERBREW,Ridge,SVR,mse,-2.6267864311605678,0.008619541428450894,True,Ridge,-0.009229652739447123,"Ridge is significantly better (DM=-2.627, p=0.0086)"

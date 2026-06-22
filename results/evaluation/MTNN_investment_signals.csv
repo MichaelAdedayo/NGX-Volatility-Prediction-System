@@ -1,5 +1,0 @@
-Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
-MTNN,Random Forest,45.96593046022825,70.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,2.170801696632104,Medium-term with hedging
-MTNN,XGBoost,46.911122999999996,60.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,2.127156162595818,Medium-term
-MTNN,Ridge,43.50067317774246,70.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,2.293542569683273,Medium-term with hedging
-MTNN,SVR,32.07491452522921,80.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,3.1080113646172185,Medium-term with hedging

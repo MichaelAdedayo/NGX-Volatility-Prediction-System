@@ -1,7 +1,0 @@
-Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
-WAPCO,Random Forest,XGBoost,mse,1.7952965183065992,0.07260646947855465,False,XGBoost,0.0012646180416576286,No significant difference between Random Forest and XGBoost (p=0.0726)
-WAPCO,Random Forest,Ridge,mse,1.3869685638893299,0.16545134882862955,False,Ridge,0.003057879929604747,No significant difference between Random Forest and Ridge (p=0.1655)
-WAPCO,Random Forest,SVR,mse,-2.340160891036842,0.01927543414315469,True,Random Forest,-0.01815769776982549,"Random Forest is significantly better (DM=-2.340, p=0.0193)"
-WAPCO,XGBoost,Ridge,mse,1.058365714732203,0.28988874390559793,False,Ridge,0.0017932618879471182,No significant difference between XGBoost and Ridge (p=0.2899)
-WAPCO,XGBoost,SVR,mse,-2.4775063863437468,0.013230404104254134,True,XGBoost,-0.01942231581148312,"XGBoost is significantly better (DM=-2.478, p=0.0132)"
-WAPCO,Ridge,SVR,mse,-2.8620718339616293,0.004208815038249103,True,Ridge,-0.02121557769943024,"Ridge is significantly better (DM=-2.862, p=0.0042)"

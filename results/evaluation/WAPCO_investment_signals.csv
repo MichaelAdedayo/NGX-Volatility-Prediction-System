@@ -1,5 +1,0 @@
-Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
-WAPCO,Random Forest,34.18802449003961,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.916470152109498,Long-term favorable
-WAPCO,XGBoost,35.077214,40.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,2.84274928651257,Medium-term
-WAPCO,Ridge,32.907977945048685,40.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,3.02957061370069,Medium-term
-WAPCO,SVR,54.6425338314237,50.0,MODERATE,HOLD / MAINTAIN,Normal market conditions. Stick to your strategy.,YELLOW,Stable,1.8267331268944165,Medium-term

@@ -1,7 +1,0 @@
-Stock,Model_1,Model_2,Loss_Function,DM_Statistic,P_Value,Significant_5%,Better_Model,Mean_Loss_Diff,Conclusion
-ZENITH,Random Forest,XGBoost,mse,1.609853017897372,0.10742994768705327,False,XGBoost,0.0006728171499283118,No significant difference between Random Forest and XGBoost (p=0.1074)
-ZENITH,Random Forest,Ridge,mse,4.748115789846909,2.053204840812839e-06,True,Ridge,0.0011933027853472883,"Ridge is significantly better (DM=4.748, p=0.0000)"
-ZENITH,Random Forest,SVR,mse,-6.009646395061763,1.8592840600462068e-09,True,Random Forest,-0.04134645212436821,"Random Forest is significantly better (DM=-6.010, p=0.0000)"
-ZENITH,XGBoost,Ridge,mse,1.5761931879614242,0.11498128795369511,False,Ridge,0.0005204856354189762,No significant difference between XGBoost and Ridge (p=0.1150)
-ZENITH,XGBoost,SVR,mse,-6.124915787779005,9.073157780647989e-10,True,XGBoost,-0.04201926927429652,"XGBoost is significantly better (DM=-6.125, p=0.0000)"
-ZENITH,Ridge,SVR,mse,-6.1519523634686895,7.653486733261161e-10,True,Ridge,-0.0425397549097155,"Ridge is significantly better (DM=-6.152, p=0.0000)"

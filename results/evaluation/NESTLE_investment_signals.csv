@@ -1,5 +1,0 @@
-Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
-NESTLE,Random Forest,34.80593359445639,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.8648424408817865,Long-term favorable
-NESTLE,XGBoost,30.424505000000003,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,3.276056401242215,Long-term favorable
-NESTLE,Ridge,-39.88221784227668,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,-2.513685898470188,Long-term favorable
-NESTLE,SVR,27.7057993923872,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,3.5963720585346115,Long-term favorable

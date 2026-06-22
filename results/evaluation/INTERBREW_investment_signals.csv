@@ -1,5 +1,0 @@
-Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
-INTERBREW,Random Forest,40.59555603746461,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.4572707621426604,Long-term favorable
-INTERBREW,XGBoost,44.86763,90.0,VERY HIGH,AVOID or REDUCE POSITION,Consider selling or hedging. Volatility is in top 20% historically.,RED,Stable,2.223821891436129,Short-term only
-INTERBREW,Ridge,36.35672083186624,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,2.74297846098631,Long-term favorable
-INTERBREW,SVR,51.97357959769901,70.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,1.9203596290587779,Medium-term with hedging

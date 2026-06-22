@@ -1,5 +1,0 @@
-Stock,Model,Current_Vol_%,Historical_Percentile,Risk_Level,Recommendation,Action,Color_Code,Volatility_Trend,Risk_Adjusted_Score,Investment_Horizon
-NB,Random Forest,21.10077759246698,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,4.716808124789338,Long-term favorable
-NB,XGBoost,23.930764,20.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,4.161332531916172,Long-term favorable
-NB,Ridge,11.45278016752356,10.0,LOW,FAVORABLE ENTRY,Good time to accumulate. Low volatility environment.,GREEN,Stable,8.655925114987786,Long-term favorable
-NB,SVR,39.11057003687996,80.0,HIGH,CAUTION,Reduce position size. Use stop-loss orders.,ORANGE,Stable,2.5503327267607645,Medium-term with hedging
