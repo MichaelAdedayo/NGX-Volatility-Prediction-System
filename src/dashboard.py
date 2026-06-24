@@ -10,6 +10,7 @@ import logging
 import json
 import secrets
 import hashlib
+import base64
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
@@ -133,6 +134,14 @@ def _render_role_summary(role: str) -> None:
             </ul>
         </div>
         """, unsafe_allow_html=True)
+
+
+def _make_download_link(data: Any, filename: str, label: str) -> str:
+    if isinstance(data, str):
+        data = data.encode('utf-8')
+    b64 = base64.b64encode(data).decode('utf-8')
+    href = f'<a href="data:file/csv;base64,{b64}" download="{filename}" style="display:inline-block;padding:10px 18px;background:#0173B2;color:#fff;border-radius:10px;text-decoration:none;font-weight:600;">{label}</a>'
+    return href
 
 
 def _load_system_activity() -> Dict[str, Any]:
@@ -1761,14 +1770,9 @@ def create_streamlit_app():
                 except Exception:
                     df_forecast['Forecast_Date'] = str(forecast.get('forecast_date'))
 
-                csv_bytes = df_forecast.to_csv(index=False)
-
-                st.download_button(
-                    label="Download Forecast CSV",
-                    data=csv_bytes,
-                    file_name=f"{controller.current_stock}_forecast.csv",
-                    mime="text/csv"
-                )
+                csv_bytes = df_forecast.to_csv(index=False).encode('utf-8')
+                forecast_link = _make_download_link(csv_bytes, f"{controller.current_stock}_forecast.csv", "Download Forecast CSV")
+                st.markdown(forecast_link, unsafe_allow_html=True)
             except Exception as e:
                 logger.debug(f"Forecast CSV export failed: {e}")
 
@@ -1831,13 +1835,9 @@ def create_streamlit_app():
             st.success(f"Best Model: **{best['Model']}** | RMSE: {best['RMSE']:.6f} | R2: {best['R2']:.4f}")
 
             # Download evaluation results
-            csv = perf_df.to_csv(index=False)
-            st.download_button(
-                "Download Results CSV",
-                csv,
-                f"{controller.current_stock}_results.csv",
-                "text/csv"
-            )
+            csv = perf_df.to_csv(index=False).encode('utf-8')
+            results_link = _make_download_link(csv, f"{controller.current_stock}_results.csv", "Download Results CSV")
+            st.markdown(results_link, unsafe_allow_html=True)
 
             st.markdown("---")
             st.subheader("Download Processed Datasets")
@@ -1849,25 +1849,17 @@ def create_streamlit_app():
             if os.path.exists(processed_path):
                 with open(processed_path, 'rb') as f:
                     processed_bytes = f.read()
+                processed_link = _make_download_link(processed_bytes, f"{controller.current_stock}_processed.csv", "Download Processed CSV")
                 with col1:
-                    st.download_button(
-                        "Download Processed CSV",
-                        processed_bytes,
-                        file_name=f"{controller.current_stock}_processed.csv",
-                        mime="text/csv"
-                    )
+                    st.markdown(processed_link, unsafe_allow_html=True)
                 downloaded = True
 
             if os.path.exists(features_path):
                 with open(features_path, 'rb') as f:
                     features_bytes = f.read()
+                features_link = _make_download_link(features_bytes, f"{controller.current_stock}_features.csv", "Download Features CSV")
                 with col2:
-                    st.download_button(
-                        "Download Features CSV",
-                        features_bytes,
-                        file_name=f"{controller.current_stock}_features.csv",
-                        mime="text/csv"
-                    )
+                    st.markdown(features_link, unsafe_allow_html=True)
                 downloaded = True
 
             if not downloaded:
