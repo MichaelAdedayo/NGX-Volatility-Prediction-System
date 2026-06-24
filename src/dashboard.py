@@ -490,10 +490,12 @@ class DashboardController:
             else:
                 df_features = df.copy()
 
-            # Save processed data
+            # Save processed and feature data
             os.makedirs(self.data_dir, exist_ok=True)
-            output_path = os.path.join(self.data_dir, f"{stock_name}_features.csv")
-            df_features.to_csv(output_path, index=False)
+            processed_path = os.path.join(self.data_dir, f"{stock_name}_processed.csv")
+            feature_path = os.path.join(self.data_dir, f"{stock_name}_features.csv")
+            df.to_csv(processed_path, index=False)
+            df_features.to_csv(feature_path, index=False)
 
             # Step 2: Prepare ML Dataset (20%)
             if progress_callback:
@@ -1828,14 +1830,48 @@ def create_streamlit_app():
             best = perf_df.iloc[0]
             st.success(f"Best Model: **{best['Model']}** | RMSE: {best['RMSE']:.6f} | R2: {best['R2']:.4f}")
 
-            # Download
+            # Download evaluation results
             csv = perf_df.to_csv(index=False)
-            st.download_button( 
+            st.download_button(
                 "Download Results CSV",
                 csv,
                 f"{controller.current_stock}_results.csv",
                 "text/csv"
             )
+
+            st.markdown("---")
+            st.subheader("Download Processed Datasets")
+            processed_path = os.path.join(controller.data_dir, f"{controller.current_stock}_processed.csv")
+            features_path = os.path.join(controller.data_dir, f"{controller.current_stock}_features.csv")
+            downloaded = False
+
+            col1, col2 = st.columns(2)
+            if os.path.exists(processed_path):
+                with open(processed_path, 'rb') as f:
+                    processed_bytes = f.read()
+                with col1:
+                    st.download_button(
+                        "Download Processed CSV",
+                        processed_bytes,
+                        file_name=f"{controller.current_stock}_processed.csv",
+                        mime="text/csv"
+                    )
+                downloaded = True
+
+            if os.path.exists(features_path):
+                with open(features_path, 'rb') as f:
+                    features_bytes = f.read()
+                with col2:
+                    st.download_button(
+                        "Download Features CSV",
+                        features_bytes,
+                        file_name=f"{controller.current_stock}_features.csv",
+                        mime="text/csv"
+                    )
+                downloaded = True
+
+            if not downloaded:
+                st.info("No processed or feature CSV files were found for this stock.")
         else:
             st.info("No evaluation results available")
 
