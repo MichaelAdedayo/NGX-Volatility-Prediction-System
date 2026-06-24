@@ -421,6 +421,15 @@ class DashboardController:
             logger.error(f"Error loading {stock_name}: {e}")
             return None
 
+    def has_pretrained_artifacts(self) -> bool:
+        """Return True if deployed pre-trained model artifacts exist for the current stock."""
+        if not self.current_stock:
+            return False
+
+        eval_path = os.path.join('results', 'tables', f"{self.current_stock}_model_comparison.csv")
+        pred_path = os.path.join('results', 'forecasts', f"{self.current_stock}_predictions.csv")
+        return os.path.exists(eval_path) or os.path.exists(pred_path)
+
     def validate_uploaded_csv(self, uploaded_file: Any) -> tuple:
         """
         Validate user-uploaded CSV file.
@@ -1679,7 +1688,13 @@ def create_streamlit_app():
         )
 
         if controller.ml_suite is None:
-            st.info("Models not trained for this stock. Use 'Upload & Train' mode.")
+            if controller.current_data is not None and not controller.has_pretrained_artifacts():
+                st.warning(
+                    "No pre-trained model artifacts were found for this stock. "
+                    "Make sure `results/tables/` and `results/forecasts/` are included in deployment or use 'Upload & Train'."
+                )
+            else:
+                st.info("Models not trained for this stock. Use 'Upload & Train' mode.")
         else:
             available = list(controller.ml_suite.predictions.keys()) if hasattr(controller.ml_suite, 'predictions') else []
             # Inform user if some expected models (e.g. SVR) are missing
@@ -1807,7 +1822,14 @@ def create_streamlit_app():
 
             st.info(f"This forecast was generated on {forecast['generated_at'].strftime('%Y-%m-%d %H:%M')} using the most recent available data. Past performance does not guarantee future results.")
         else:
-            st.warning("No forecast available. Make sure models are trained or loaded for this stock.")
+            if controller.current_data is not None and not controller.has_pretrained_artifacts():
+                st.warning(
+                    "No forecast available because pre-trained forecast artifacts are missing. "
+                    "Add `results/forecasts/{stock}_predictions.csv` and `results/tables/{stock}_model_comparison.csv` to the deployed app, "
+                    "or use Upload & Train to generate them."
+                )
+            else:
+                st.warning("No forecast available. Make sure models are trained or loaded for this stock.")
 
     if admin_tab is not None:
         with admin_tab:
@@ -1879,7 +1901,13 @@ def create_streamlit_app():
             if not downloaded:
                 st.info("No processed or feature CSV files were found for this stock.")
         else:
-            st.info("No evaluation results available")
+            if controller.current_data is not None and not controller.has_pretrained_artifacts():
+                st.info(
+                    "No evaluation results available because deployed pre-trained artifacts were not found. "
+                    "Ensure `results/tables/` is included with the app or run Upload & Train."
+                )
+            else:
+                st.info("No evaluation results available")
 
     # Footer
     render_footer()

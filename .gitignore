@@ -31,8 +31,14 @@ build/
 *.egg-info/
 
 # Project-specific generated outputs
-results/
 models/
+
+# Keep app-critical pre-trained artifacts for Quick Load deployment
+results/*
+!results/tables/
+!results/tables/**
+!results/forecasts/
+!results/forecasts/**
 
 # Optional large data directories if you do not want datasets in Git
 # Uncomment if datasets are regenerated or too large for repository
