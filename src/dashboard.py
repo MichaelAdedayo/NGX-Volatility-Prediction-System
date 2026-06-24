@@ -1388,6 +1388,15 @@ def create_streamlit_app():
     # Initialize controller
     controller = DashboardController()
 
+    # Persist loaded stock selection across reruns
+    if "loaded_stock" not in st.session_state:
+        st.session_state.loaded_stock = None
+    if "stock_mode" not in st.session_state:
+        st.session_state.stock_mode = None
+
+    if st.session_state.loaded_stock:
+        controller.load_stock_data(st.session_state.loaded_stock)
+
     # Sidebar configuration
     st.sidebar.header("Configuration")
 
@@ -1422,6 +1431,7 @@ def create_streamlit_app():
         stock = st.sidebar.selectbox(
             "Select Stock",
             pre_trained if pre_trained else ["No data available"],
+            key="quick_load_stock",
             disabled=len(pre_trained) == 0
         )
 
@@ -1429,6 +1439,8 @@ def create_streamlit_app():
             with st.spinner(f"Loading {stock}..."):
                 df = controller.load_stock_data(stock)
                 if df is not None:
+                    st.session_state.loaded_stock = stock
+                    st.session_state.stock_mode = mode
                     st.sidebar.success(f"Loaded {len(df):,} observations")
                     st.sidebar.info(f"Features: {df.shape[1]}")
                 else:
@@ -1479,6 +1491,8 @@ def create_streamlit_app():
                         )
 
                         if success:
+                            st.session_state.loaded_stock = stock_name
+                            st.session_state.stock_mode = mode
                             st.sidebar.success("Training complete!")
                             st.sidebar.info("Figures saved to results/figures/")
                         else:
