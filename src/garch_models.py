@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import logging
 import os
-from typing import Dict, List
+from typing import Dict
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -401,7 +401,7 @@ def analyze_single_stock(stock_name: str, data_path: str = "data/processed") -> 
     forecasts = garch.rolling_forecast(best_model, window=500)
     metrics = evaluate_garch_forecast(forecasts)
     
-    logger.info(f"\nForecast Performance:")
+    logger.info("\nForecast Performance:")
     for metric, value in metrics.items():
         logger.info(f"  {metric:20s}: {value:.6f}")
     
@@ -472,11 +472,11 @@ if __name__ == "__main__":
         summary_df.to_csv("results/garch_output/all_stocks_garch_summary.csv", index=False)
         
         # Count best model occurrences
-        print(f"\nBest Model Distribution:")
+        print("\nBest Model Distribution:")
         print(summary_df['best_model'].value_counts().to_string())
         
         # Average performance
-        print(f"\nAverage Performance Across All Stocks:")
+        print("\nAverage Performance Across All Stocks:")
         print(f"  RMSE: {summary_df['rmse'].mean():.6f}")
         print(f"  MAE:  {summary_df['mae'].mean():.6f}")
         print(f"  R²:   {summary_df['r2'].mean():.6f}")
