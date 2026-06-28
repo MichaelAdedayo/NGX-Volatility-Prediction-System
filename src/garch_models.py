@@ -72,7 +72,7 @@ class GARCHSuite:
                 'bic': result.bic,
                 'loglik': result.loglikelihood,
                 'params': result.params.to_dict(),
-                'convergence': result.convergence
+                'convergence': getattr(result, 'convergence', getattr(result, 'converged', None))
             }
         except Exception as e:
             logger.error(f"GARCH failed: {e}")
@@ -103,7 +103,7 @@ class GARCHSuite:
                 'bic': result.bic,
                 'loglik': result.loglikelihood,
                 'params': result.params.to_dict(),
-                'convergence': result.convergence
+                'convergence': getattr(result, 'convergence', getattr(result, 'converged', None))
             }
         except Exception as e:
             logger.error(f"EGARCH failed: {e}")
@@ -137,7 +137,7 @@ class GARCHSuite:
                 'bic': result.bic,
                 'loglik': result.loglikelihood,
                 'params': result.params.to_dict(),
-                'convergence': result.convergence
+                'convergence': getattr(result, 'convergence', getattr(result, 'converged', None))
             }
         except Exception as e:
             logger.error(f"GJR-GARCH failed: {e}")
@@ -166,7 +166,7 @@ class GARCHSuite:
                 'bic': result.bic,
                 'loglik': result.loglikelihood,
                 'params': result.params.to_dict(),
-                'convergence': result.convergence
+                'convergence': getattr(result, 'convergence', getattr(result, 'converged', None))
             }
         except Exception as e:
             logger.error(f"HARCH failed: {e}")
