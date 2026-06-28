@@ -9,8 +9,10 @@ statsmodels
 matplotlib
 plotly
 seaborn
-shap
 scipy
 joblib
 openpyxl
 setuptools
+
+# Optional interpretability dependency:
+# shap (install separately only if you need SHAP explainability)

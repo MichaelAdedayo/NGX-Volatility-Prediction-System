@@ -101,6 +101,8 @@ Model performance is evaluated using:
 
 ## Installation
 
+This project is tested with Python 3.8 or 3.9. If you want SHAP-based interpretability, install `shap` separately in a compatible Python environment.
+
 Clone the repository:
 
 ```bash
@@ -117,6 +119,12 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Optional: install SHAP only if you need model explainability and are using Python <= 3.9:
+
+```bash
+pip install shap
 ```
 
 Run the application:
