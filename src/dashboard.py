@@ -1273,6 +1273,22 @@ def create_streamlit_app():
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
 
+    .stButton>button[kind="primary"] {
+        background: linear-gradient(135deg, #0173B2, #00A6FB);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 12px;
+        padding: 0.65rem 1.2rem;
+        font-weight: 700;
+        box-shadow: 0 10px 20px rgba(1, 115, 178, 0.25);
+    }
+
+    .stButton>button[kind="primary"]:hover {
+        background: linear-gradient(135deg, #015b93, #009ce4);
+        box-shadow: 0 14px 24px rgba(1, 115, 178, 0.3);
+        transform: translateY(-1px);
+    }
+
     .stButton>button:active,
     .stTextInput>div>input:focus,
     .stSelectbox>div>div[data-baseweb]:focus-within,
@@ -1414,7 +1430,7 @@ def create_streamlit_app():
     # =====================================
 
     role = st.session_state.get("user_role", "Guest")
-    permissions = _get_role_permissions(role)
+    _get_role_permissions(role)
     _render_role_summary(role)
 
     if role == "Guest":
@@ -1601,6 +1617,13 @@ def create_streamlit_app():
     c2.metric("Observations", f"{summary['rows']:,}")
     c3.metric("Features", summary['features'])
     c4.metric("Status", "Trained" if controller.ml_suite else "Loaded")
+
+    col_left, col_right = st.columns([4, 1.2])
+    with col_right:
+        if st.button("Back to Dashboard", type="primary", use_container_width=True):
+            st.session_state.loaded_stock = None
+            st.session_state.stock_mode = None
+            st.rerun()
 
     st.markdown(
         """
