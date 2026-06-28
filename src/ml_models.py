@@ -20,7 +20,7 @@ FIXED: TensorFlow/Keras imports, DataFrame handling, dashboard integration
 
 import pandas as pd
 import numpy as np
-from typing import Dict, List, Optional, Union
+from typing import Dict
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import Ridge
 from sklearn.svm import SVR
@@ -29,7 +29,6 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import logging
 import warnings
 import os
-import sys
 from datetime import datetime
 
 # Setup logging
@@ -366,7 +365,6 @@ class MLVolatilitySuite:
                 np.save(f"{output_dir}/{model_name}_shap_values.npy", shap_vals)
 
                 if model_name in ['Random Forest', 'XGBoost']:
-                    X_sample = self.X_test.iloc[:len(shap_vals)] if hasattr(self.X_test, 'iloc') else self.X_test[:len(shap_vals)]
                     shap_df = pd.DataFrame({
                         'feature': self.feature_cols,
                         'mean_abs_shap': np.abs(shap_vals).mean(axis=0)
@@ -599,7 +597,7 @@ def print_summary_table(summary_data):
     from collections import Counter
     models = [item['best_model'] for item in summary_data if not np.isnan(item['rmse'])]
     if models:
-        print(f"\n  MODEL WIN DISTRIBUTION:")
+        print("\n  MODEL WIN DISTRIBUTION:")
         model_counts = Counter(models)
         for model, count in model_counts.most_common():
             bar = "█" * count
@@ -634,7 +632,7 @@ def load_and_run_ml(stock_name: str, data_path: str = "data/features"):
 
     print(f"\n  Training: {len(dataset['X_train'])} samples")
     print(f"  Test:     {len(dataset['X_test'])} samples")
-    print(f"\n  Training Models:")
+    print("\n  Training Models:")
 
     # Train models
     ml_suite = MLVolatilitySuite(dataset)
@@ -659,7 +657,7 @@ def load_and_run_ml(stock_name: str, data_path: str = "data/features"):
         importance.to_csv(f"{output_dir}/{stock_name}_feature_importance.csv", index=False)
 
         # Top 3 features
-        print(f"\n  Top 3 Features:")
+        print("\n  Top 3 Features:")
         for i, row in importance.head(3).iterrows():
             print(f"    {i+1}. {row['Feature']} ({row['Importance']:.4f})")
 
@@ -726,7 +724,7 @@ def run_ml_for_all_stocks():
         os.makedirs("results/ml_output", exist_ok=True)
         summary_df.to_csv("results/ml_output/all_stocks_ml_summary.csv", index=False)
 
-        print(f"\n  Results saved to: results/ml_output/")
+        print("\n  Results saved to: results/ml_output/")
 
     print_header("ANALYSIS COMPLETE")
 
