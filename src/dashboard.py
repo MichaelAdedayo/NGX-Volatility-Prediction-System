@@ -1618,12 +1618,11 @@ def create_streamlit_app():
     c3.metric("Features", summary['features'])
     c4.metric("Status", "Trained" if controller.ml_suite else "Loaded")
 
-    col_left, col_right = st.columns([4, 1.2])
-    with col_right:
-        if st.button("Back to Dashboard", type="primary", use_container_width=True):
-            st.session_state.loaded_stock = None
-            st.session_state.stock_mode = None
-            st.rerun()
+    st.sidebar.markdown("---")
+    if st.sidebar.button("Back to Dashboard", type="primary", use_container_width=True):
+        st.session_state.loaded_stock = None
+        st.session_state.stock_mode = None
+        st.rerun()
 
     st.markdown(
         """
