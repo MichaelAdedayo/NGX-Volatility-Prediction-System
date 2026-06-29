@@ -375,7 +375,7 @@ def render_login_page():
         box-shadow: 0 0 0 3px rgba(1,166,251,0.25), 0 4px 20px rgba(1,166,251,0.2) !important;
     }
 
-    /* Sign In button */
+   /* Sign In button */
     .stButton > button {
         width: 100% !important;
         background: linear-gradient(90deg, #0173B2 0%, #00A6FB 50%, #00D4FF 100%) !important;
