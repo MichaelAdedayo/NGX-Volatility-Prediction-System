@@ -636,7 +636,7 @@ def render_registration_form():
         """, unsafe_allow_html=True)
         st.session_state.register_error = None
 
-    full_name = st.text_input("Full name", placeholder="e.g. Michael  Adedayo", key="reg_full_name")
+    full_name = st.text_input("Full name", placeholder="e.g. Michael Adedayo", key="reg_full_name")
     new_username = st.text_input("Choose a username", placeholder="Enter a username", key="reg_username")
     new_password = st.text_input("Choose a password", type="password", placeholder="At least 8 characters", key="reg_password")
     confirm_password = st.text_input("Confirm password", type="password", placeholder="Re-enter your password", key="reg_confirm_password")
