@@ -43,7 +43,6 @@ COLORS = {
     'xgboost': '#56B4E9',
     'ridge': '#009E73',
     'svr': '#F0E442',
-    'lstm': '#0072B2',
     'garch': '#D55E00',
     'error_band': '#CC79A7'
 }

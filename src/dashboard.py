@@ -1719,8 +1719,13 @@ def create_streamlit_app():
                 st.info("Models not trained for this stock. Use 'Upload & Train' mode.")
         else:
             available = list(controller.ml_suite.predictions.keys()) if hasattr(controller.ml_suite, 'predictions') else []
+            # Include GARCH in the selection list when forecast data exists
+            if hasattr(controller, 'garch_forecasts') and controller.garch_forecasts is not None:
+                if 'GARCH' not in available:
+                    available.append('GARCH')
+
             # Inform user if some expected models (e.g. SVR) are missing
-            expected_models = ['Random Forest', 'XGBoost', 'Ridge', 'SVR']
+            expected_models = ['Random Forest', 'XGBoost', 'Ridge', 'SVR', 'GARCH']
             missing_models = [m for m in expected_models if m not in available]
             if missing_models:
                 st.info(f"Note: the following models are not available for this stock: {', '.join(missing_models)}. "
@@ -1728,7 +1733,7 @@ def create_streamlit_app():
             selected = st.multiselect(
                 "Select models to display",
                 available,
-                default=available[:3] if available else []
+                default=available if available else []
             )
 
             if selected:
@@ -1754,6 +1759,23 @@ def create_streamlit_app():
             st.subheader("Latest Predictions")
             pred_data = []
             predictions = controller.ml_suite.predictions if hasattr(controller.ml_suite, 'predictions') else {}
+
+            # Add GARCH to the summary table when available
+            if hasattr(controller, 'garch_forecasts') and controller.garch_forecasts is not None:
+                try:
+                    garch_pred = None
+                    if isinstance(controller.garch_forecasts, dict) and 'forecasted_vol' in controller.garch_forecasts:
+                        garch_pred = controller.garch_forecasts['forecasted_vol']
+                    elif hasattr(controller.garch_forecasts, 'forecasted_vol'):
+                        garch_pred = getattr(controller.garch_forecasts, 'forecasted_vol')
+
+                    if garch_pred is not None:
+                        garch_arr = garch_pred.values if hasattr(garch_pred, 'values') else np.array(garch_pred)
+                        if 'GARCH' not in predictions:
+                            predictions['GARCH'] = garch_arr
+                except Exception:
+                    pass
+
             for model, preds in predictions.items():
                 if len(preds) > 0:
                     pred_data.append({
