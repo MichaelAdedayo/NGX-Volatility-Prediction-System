@@ -1501,7 +1501,7 @@ def create_streamlit_app():
 
                 # Fast training mode option
                 fast_mode = st.sidebar.checkbox(
-                    "Fast Mode (skip GARCH & LSTM)",
+                    "Fast Mode (skip GARCH)",
                     value=False,
                     help="Reduces training time significantly by skipping slower models"
                 )
