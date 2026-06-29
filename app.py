@@ -375,7 +375,7 @@ def render_login_page():
         box-shadow: 0 0 0 3px rgba(1,166,251,0.25), 0 4px 20px rgba(1,166,251,0.2) !important;
     }
 
-   /* Sign In button */
+    /* Sign In button */
     .stButton > button {
         width: 100% !important;
         background: linear-gradient(90deg, #0173B2 0%, #00A6FB 50%, #00D4FF 100%) !important;
@@ -592,7 +592,7 @@ def render_login_form():
     username = st.text_input("Username", placeholder="Enter your username", key="login_username")
     password = st.text_input("Password", type="password", placeholder="Enter your password", key="login_password")
 
-    login_clicked = st.button("Sign In", use_container_width=True, key="login_submit")
+    login_clicked = st.button("Sign In", use_container_width=True, key="login_submit", type="primary")
 
     # Link to switch to the registration view
     st.markdown('<div class="auth-toggle-row">New to the platform?</div>', unsafe_allow_html=True)
@@ -650,7 +650,7 @@ def render_registration_form():
         help="Guests have read-only/demo access. Analysts can run full research workflows. Administrator accounts cannot be self-registered."
     )
 
-    register_clicked = st.button("Create account", use_container_width=True, key="register_submit")
+    register_clicked = st.button("Create account", use_container_width=True, key="register_submit", type="primary")
 
     _, mid, _ = st.columns([1, 1, 1])
     with mid:
