@@ -118,28 +118,12 @@ if current_dir not in sys.path:
 # =============================================================================
 # AUTHENTICATION CONFIGURATION
 # =============================================================================
-
-# Pre-defined users (username: {password_hash, role, full_name})
-# Passwords are hashed with SHA-256 for basic security
-# Default passwords: admin/admin123, guest/guest123, user/user123
-
-USERS = {
-    "admin": {
-        "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",  # admin123
-        "role": "Administrator",
-        "full_name": "System Administrator"
-    },
-    "guest": {
-        "password_hash": "6b93ccba414ac1d0ae1e77f3fac560c748a6701ed6946735a49d463351518e16",  # guest123
-        "role": "Guest",
-        "full_name": "Guest User"
-    },
-    "user": {
-        "password_hash": "e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446",  # user123
-        "role": "Analyst",
-        "full_name": "Research Analyst"
-    }
-}
+# NOTE: the canonical user store is auth_users.json, managed via load_users()/
+# save_users() above. The in-memory USERS dict loaded earlier just seeds that
+# file on first run via DEFAULT_USERS. (A second hardcoded SHA-256 USERS dict
+# used to live here and silently shadowed the JSON store — removed, since it
+# meant newly registered accounts could be inconsistent with what
+# verify_credentials() actually checked.)
 
 # Session timeout in minutes
 SESSION_TIMEOUT = 60
@@ -450,6 +434,21 @@ def render_login_page():
         backdrop-filter: blur(5px);
     }
 
+    /* Success message */
+    .login-success {
+        background: linear-gradient(135deg, rgba(46,204,113,0.15), rgba(39,174,96,0.1));
+        border: 1.5px solid rgba(46,204,113,0.4);
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: #2ecc71;
+        font-size: 14px;
+        margin-bottom: 22px;
+        text-align: center;
+        font-weight: 500;
+        animation: fadeInDown 0.5s ease-out;
+        backdrop-filter: blur(5px);
+    }
+
     /* Footer */
     .login-footer {
         text-align: center;
@@ -461,6 +460,39 @@ def render_login_page():
         font-weight: 300;
         line-height: 1.6;
         animation: fadeInUp 0.8s ease-out 0.5s both;
+    }
+
+    /* Toggle link button (Create account / Back to sign in) */
+    div[data-testid="stButton"] button[kind="secondary"] {
+        background: transparent !important;
+        color: #00A6FB !important;
+        border: none !important;
+        box-shadow: none !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        text-decoration: underline;
+        padding: 4px 0 !important;
+        width: auto !important;
+        margin-top: 4px !important;
+    }
+
+    div[data-testid="stButton"] button[kind="secondary"]:hover {
+        color: #00D4FF !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+
+    .auth-toggle-row {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 14px;
+        color: rgba(255,255,255,0.55);
+    }
+
+    /* Role selector radio styling */
+    div[role="radiogroup"] label {
+        color: rgba(255,255,255,0.85) !important;
     }
 
     /* Ensure all controls use Poppins */
@@ -508,29 +540,14 @@ def render_login_page():
         </div>
         """, unsafe_allow_html=True)
 
-        # Show error message if any
-        if "login_error" in st.session_state and st.session_state.login_error:
-            st.markdown(f"""
-            <div class="login-error">
-                {st.session_state.login_error}
-            </div>
-            """, unsafe_allow_html=True)
-            st.session_state.login_error = None
+        # Decide which form to show: sign-in or create-account
+        if "auth_view" not in st.session_state:
+            st.session_state.auth_view = "login"
 
-        # Show session expired message
-        if "session_expired" in st.session_state and st.session_state.session_expired:
-            st.markdown("""
-            <div class="login-error">
-                Your session has expired. Please log in again.
-            </div>
-            """, unsafe_allow_html=True)
-            st.session_state.session_expired = False
-
-        # Login form
-        username = st.text_input("Username", placeholder="Enter your username", key="login_username")
-        password = st.text_input("Password", type="password", placeholder="Enter your password", key="login_password")
-
-        login_clicked = st.button("Sign In", use_container_width=True)
+        if st.session_state.auth_view == "register":
+            render_registration_form()
+        else:
+            render_login_form()
 
         st.markdown("""
         <div class="login-footer">
@@ -539,18 +556,167 @@ def render_login_page():
         </div>
         """, unsafe_allow_html=True)
 
-        # Handle login
-        if login_clicked:
-            if not username or not password:
-                st.session_state.login_error = "Please enter both username and password."
-                st.rerun()
-            elif verify_credentials(username, password):
-                login_user(username)
-                st.session_state.login_error = None
-                st.rerun()
-            else:
-                st.session_state.login_error = "Invalid username or password. Please try again."
-                st.rerun()
+
+def render_login_form():
+    """Render the sign-in form and the link to switch to registration."""
+    import streamlit as st
+
+    # Show error message if any
+    if "login_error" in st.session_state and st.session_state.login_error:
+        st.markdown(f"""
+        <div class="login-error">
+            {st.session_state.login_error}
+        </div>
+        """, unsafe_allow_html=True)
+        st.session_state.login_error = None
+
+    # Show session expired message
+    if "session_expired" in st.session_state and st.session_state.session_expired:
+        st.markdown("""
+        <div class="login-error">
+            Your session has expired. Please log in again.
+        </div>
+        """, unsafe_allow_html=True)
+        st.session_state.session_expired = False
+
+    # Show post-registration success message
+    if "register_success" in st.session_state and st.session_state.register_success:
+        st.markdown("""
+        <div class="login-success">
+            Account created successfully. You can now sign in below.
+        </div>
+        """, unsafe_allow_html=True)
+        st.session_state.register_success = False
+
+    # Login form
+    username = st.text_input("Username", placeholder="Enter your username", key="login_username")
+    password = st.text_input("Password", type="password", placeholder="Enter your password", key="login_password")
+
+    login_clicked = st.button("Sign In", use_container_width=True, key="login_submit")
+
+    # Link to switch to the registration view
+    st.markdown('<div class="auth-toggle-row">New to the platform?</div>', unsafe_allow_html=True)
+    _, mid, _ = st.columns([1, 1, 1])
+    with mid:
+        create_clicked = st.button("Create account", key="goto_register", type="secondary", use_container_width=True)
+
+    if create_clicked:
+        st.session_state.auth_view = "register"
+        st.rerun()
+
+    # Handle login
+    if login_clicked:
+        if not username or not password:
+            st.session_state.login_error = "Please enter both username and password."
+            st.rerun()
+        elif verify_credentials(username, password):
+            login_user(username)
+            st.session_state.login_error = None
+            st.rerun()
+        else:
+            st.session_state.login_error = "Invalid username or password. Please try again."
+            st.rerun()
+
+
+def render_registration_form():
+    """Render the create-account form (Guest or Analyst roles only)."""
+    import streamlit as st
+
+    st.markdown(
+        '<div class="login-title" style="font-size:24px; margin-bottom:6px;">Create your account</div>'
+        '<div class="login-subtitle" style="margin-bottom:28px;">New users join as Guest or Research Analyst</div>',
+        unsafe_allow_html=True
+    )
+
+    if "register_error" in st.session_state and st.session_state.register_error:
+        st.markdown(f"""
+        <div class="login-error">
+            {st.session_state.register_error}
+        </div>
+        """, unsafe_allow_html=True)
+        st.session_state.register_error = None
+
+    full_name = st.text_input("Full name", placeholder="e.g. Ada Lovelace", key="reg_full_name")
+    new_username = st.text_input("Choose a username", placeholder="Enter a username", key="reg_username")
+    new_password = st.text_input("Choose a password", type="password", placeholder="At least 8 characters", key="reg_password")
+    confirm_password = st.text_input("Confirm password", type="password", placeholder="Re-enter your password", key="reg_confirm_password")
+
+    role_choice = st.radio(
+        "Account type",
+        options=["Guest", "Analyst"],
+        index=0,
+        horizontal=True,
+        key="reg_role",
+        help="Guests have read-only/demo access. Analysts can run full research workflows. Administrator accounts cannot be self-registered."
+    )
+
+    register_clicked = st.button("Create account", use_container_width=True, key="register_submit")
+
+    _, mid, _ = st.columns([1, 1, 1])
+    with mid:
+        back_clicked = st.button("Back to sign in", key="goto_login", type="secondary", use_container_width=True)
+
+    if back_clicked:
+        st.session_state.auth_view = "login"
+        st.rerun()
+
+    if register_clicked:
+        error = validate_new_account(full_name, new_username, new_password, confirm_password)
+        if error:
+            st.session_state.register_error = error
+            st.rerun()
+        else:
+            create_user_account(new_username.strip(), new_password, role_choice, full_name.strip())
+            st.session_state.auth_view = "login"
+            st.session_state.register_success = True
+            st.rerun()
+
+
+def validate_new_account(full_name: str, username: str, password: str, confirm_password: str) -> Optional[str]:
+    """Validate registration form input. Returns an error string, or None if valid."""
+    full_name = (full_name or "").strip()
+    username = (username or "").strip()
+
+    if not full_name or not username or not password or not confirm_password:
+        return "Please fill in every field."
+
+    if not username.isascii() or not username.replace("_", "").replace(".", "").isalnum():
+        return "Username may only contain letters, numbers, underscores, and periods."
+
+    if username.lower() in {"admin", "administrator", "root"}:
+        return "That username is reserved. Please choose another."
+
+    if len(username) < 3:
+        return "Username must be at least 3 characters."
+
+    if len(password) < 8:
+        return "Password must be at least 8 characters."
+
+    if password != confirm_password:
+        return "Passwords do not match."
+
+    users = load_users()
+    if username.lower() in {u.lower() for u in users.keys()}:
+        return "That username is already taken. Please choose another."
+
+    return None
+
+
+def create_user_account(username: str, password: str, role: str, full_name: str) -> None:
+    """Persist a new Guest or Analyst account to the users store."""
+    if role not in {"Guest", "Analyst"}:
+        role = "Guest"  # enforced fallback — registration can never create Administrators
+
+    users = load_users()
+    credentials = hash_password(password)
+    users[username] = {
+        "salt": credentials["salt"],
+        "hash": credentials["hash"],
+        "iterations": credentials["iterations"],
+        "role": role,
+        "full_name": full_name
+    }
+    save_users(users)
 
 
 def render_dashboard():
