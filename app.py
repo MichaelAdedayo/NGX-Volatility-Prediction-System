@@ -636,19 +636,21 @@ def render_registration_form():
         """, unsafe_allow_html=True)
         st.session_state.register_error = None
 
-    full_name = st.text_input("Full name", placeholder="e.g. Michael Adedayo", key="reg_full_name")
+    full_name = st.text_input("Full name", placeholder="e.g. Ada Lovelace", key="reg_full_name")
     new_username = st.text_input("Choose a username", placeholder="Enter a username", key="reg_username")
     new_password = st.text_input("Choose a password", type="password", placeholder="At least 8 characters", key="reg_password")
     confirm_password = st.text_input("Confirm password", type="password", placeholder="Re-enter your password", key="reg_confirm_password")
 
-    role_choice = st.radio(
+    role_labels = {"Guest User": "Guest", "Research Analyst": "Analyst"}
+    role_choice_label = st.radio(
         "Account type",
-        options=["Guest User", "Research Analyst"],
+        options=list(role_labels.keys()),
         index=0,
         horizontal=True,
         key="reg_role",
         help="Guests have read-only/demo access. Analysts can run full research workflows. Administrator accounts cannot be self-registered."
     )
+    role_choice = role_labels[role_choice_label]
 
     register_clicked = st.button("Create account", use_container_width=True, key="register_submit", type="primary")
 
