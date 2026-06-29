@@ -964,6 +964,8 @@ class DashboardController:
             if hasattr(self.ml_suite, 'predictions') and self.ml_suite.predictions:
                 forecasts = {}
                 for model_name, preds in self.ml_suite.predictions.items():
+                    if 'GARCH' in model_name.upper():
+                        continue
                     if len(preds) > 0 and not np.isnan(preds[-1]):
                         forecasts[model_name] = float(preds[-1])
 
@@ -1067,6 +1069,8 @@ class DashboardController:
             forecasts = {}
             if hasattr(self.ml_suite, 'models'):
                 for model_name, model in self.ml_suite.models.items():
+                    if 'GARCH' in model_name.upper():
+                        continue
                     # LSTM removed; no special-case skipping required
                     try:
                         if model_name in ['Ridge', 'SVR']:
@@ -1815,16 +1819,18 @@ def create_streamlit_app():
                     help="Estimated range based on model variation"
                 )
 
+            model_forecasts = {k: v for k, v in forecast['model_forecasts'].items() if 'GARCH' not in k.upper()}
+
             st.markdown("**Individual Model Forecasts:**")
-            model_cols = st.columns(min(len(forecast['model_forecasts']), 4))
-            for i, (model_name, pred) in enumerate(forecast['model_forecasts'].items()):
+            model_cols = st.columns(min(len(model_forecasts), 4))
+            for i, (model_name, pred) in enumerate(model_forecasts.items()):
                 with model_cols[i % len(model_cols)]:
                     st.metric(model_name, f"{pred:.4f}")
 
             # --- Export forecast as CSV
             try:
                 rows = []
-                for model_name, pred in forecast['model_forecasts'].items():
+                for model_name, pred in model_forecasts.items():
                     rows.append({
                         'Model': model_name,
                         'Predicted_Volatility': float(pred)
