@@ -504,7 +504,7 @@ class DashboardController:
 
             if VolatilityFeatures:
                 feature_eng = VolatilityFeatures(df)
-                df_features = feature_eng.create_all_features()
+                df_features = feature_eng.create_all_features(stock_name=stock_name)
             else:
                 df_features = df.copy()
 
@@ -972,6 +972,15 @@ class DashboardController:
                 if forecasts:
                     ensemble_forecast = np.mean(list(forecasts.values()))
 
+                    news_adjustment = 0.0
+                    if 'news_volatility_adjustment' in self.current_data.columns:
+                        recent_news_adjustment = self.current_data['news_volatility_adjustment'].dropna()
+                        if len(recent_news_adjustment) > 0:
+                            news_adjustment = float(recent_news_adjustment.iloc[-1])
+
+                    if abs(news_adjustment) > 0:
+                        ensemble_forecast = ensemble_forecast * (1 + news_adjustment)
+
                     # Use the latest available data date for forecasting, not only the test set end.
                     last_date = pd.to_datetime(self.current_data['Date']).max()
                     if pd.isna(last_date):
@@ -1008,11 +1017,21 @@ class DashboardController:
                     if historical_vol is not None and historical_vol > 0:
                         change_pct = (ensemble_forecast - historical_vol) / historical_vol * 100
 
+                        if abs(news_adjustment) > 0:
+                            news_note = (
+                                " Recent news and policy signals are nudging the outlook upward."
+                                if news_adjustment > 0 else
+                                " Recent news and policy signals are tempering the outlook."
+                            )
+                        else:
+                            news_note = ""
+
                         if change_pct > 5:
                             forecast_summary = (
                                 f" **{stock_name}** is heating up! Next-day volatility is expected to spike by "
                                 f"**{change_pct:.1f}%** above recent levels (from {historical_vol:.3f} to {ensemble_forecast:.3f}). "
                                 f"This signals **elevated risk** with potentially larger price swings. "
+                                f"{news_note}"
                                 f" **Investors**: Consider tightening stop losses and reducing position sizes. "
                                 f"**Traders**: Watch for higher trading ranges and potential breakout opportunities."
                             )
@@ -1021,6 +1040,7 @@ class DashboardController:
                                 f" **{stock_name}** is calming down! Next-day volatility is expected to decline by "
                                 f"**{abs(change_pct):.1f}%** below recent levels (from {historical_vol:.3f} to {ensemble_forecast:.3f}). "
                                 f"This suggests **more stable trading conditions** ahead with tighter price ranges. "
+                                f"{news_note}"
                                 f" **Investors**: A good window for position adjustments or rebalancing. "
                                 f"**Traders**: Expect reduced trading ranges and potential consolidation patterns."
                             )
@@ -1029,6 +1049,7 @@ class DashboardController:
                                 f" **{stock_name}** is holding steady! Next-day volatility is expected to remain "
                                 f"**similar to recent levels** (±5%), staying around {ensemble_forecast:.3f}. "
                                 f"Market conditions appear {vol_desc} and predictable. "
+                                f"{news_note}"
                                 f" **Investors**: Continue with your current risk management strategy. "
                                 f"**Traders**: Maintain current position sizing and trend-following strategies. "
                                 f"**Monitor**: Watch for any news or market catalysts that could change this outlook."
@@ -1037,6 +1058,7 @@ class DashboardController:
                         forecast_summary = (
                             f"**{stock_name}** forecast shows {vol_level} volatility ({ensemble_forecast:.3f}). "
                             f"Limited historical data is available, but models predict {vol_desc} market conditions. "
+                            f"{news_note}"
                             f"Use these predictions alongside other technical indicators for best results."
                         )
 
@@ -1092,6 +1114,15 @@ class DashboardController:
 
             # Calculate ensemble forecast (average of all models)
             ensemble_forecast = np.mean(list(forecasts.values()))
+
+            news_adjustment = 0.0
+            if 'news_volatility_adjustment' in self.current_data.columns:
+                recent_news_adjustment = self.current_data['news_volatility_adjustment'].dropna()
+                if len(recent_news_adjustment) > 0:
+                    news_adjustment = float(recent_news_adjustment.iloc[-1])
+
+            if abs(news_adjustment) > 0:
+                ensemble_forecast = ensemble_forecast * (1 + news_adjustment)
 
             # Get the date for tomorrow
             last_date = pd.to_datetime(self.current_data['Date'].iloc[-1])

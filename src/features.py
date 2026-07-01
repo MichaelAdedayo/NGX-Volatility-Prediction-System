@@ -8,6 +8,11 @@ import numpy as np
 from scipy import stats
 import logging
 
+try:
+    from .news_features import add_news_features_to_dataframe
+except ImportError:  # pragma: no cover - fallback for direct execution
+    from news_features import add_news_features_to_dataframe
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -170,10 +175,19 @@ class VolatilityFeatures:
         
         return df
     
-    def create_all_features(self):
+    def create_all_features(self, stock_name=None):
         """Create complete feature set"""
         logger.info("Adding technical indicators...")
         self.df = self.add_technical_indicators()
+
+        if stock_name is None and 'stock' in self.df.columns and not self.df['stock'].empty:
+            stock_name = self.df['stock'].iloc[0]
+
+        if stock_name is not None:
+            logger.info(f"Adding news and policy features for {stock_name}...")
+            self.df = add_news_features_to_dataframe(self.df, stock_name)
+        else:
+            logger.info("No stock name supplied; skipping news feature enrichment.")
         
         logger.info("Adding volatility features...")
         self.df = self.add_volatility_features()
