@@ -1,6 +1,6 @@
 {
   "summary": {
-    "timestamp": "2026-04-29T14:01:13.058755",
+    "timestamp": "2026-07-01T21:49:59.084364",
     "total": 15,
     "successful": 15,
     "failed": 0,
@@ -12,165 +12,165 @@
       "success": true,
       "error_message": null,
       "data_points": 946,
-      "test_rmse": 0.05080426695526438,
-      "test_mape": 10.037756168182858,
+      "test_rmse": 0.05080426695526416,
+      "test_mape": 10.037756168182717,
       "directional_accuracy": 23.28042328042328,
       "best_model": "Ridge",
-      "processing_time": 2.806481
+      "processing_time": 41.714223
     },
     {
       "stock_name": "DANGSUG",
       "success": true,
       "error_message": null,
       "data_points": 1285,
-      "test_rmse": 0.037098405595650065,
-      "test_mape": 5.318220829813986,
+      "test_rmse": 0.03709840559565009,
+      "test_mape": 5.318220829814009,
       "directional_accuracy": 50.0,
       "best_model": "Ridge",
-      "processing_time": 2.439745
+      "processing_time": 35.097915
     },
     {
       "stock_name": "MTNN",
       "success": true,
       "error_message": null,
       "data_points": 1282,
-      "test_rmse": 0.045902705499719955,
-      "test_mape": 9.90424021674204,
-      "directional_accuracy": 33.59375,
+      "test_rmse": 0.046310375171261874,
+      "test_mape": 10.098515257150975,
+      "directional_accuracy": 32.8125,
       "best_model": "Random Forest",
-      "processing_time": 2.425873
+      "processing_time": 31.819689
     },
     {
       "stock_name": "GTCO",
       "success": true,
       "error_message": null,
       "data_points": 1288,
-      "test_rmse": 0.037163734584463724,
-      "test_mape": 7.509038030793906,
+      "test_rmse": 0.03716373458446385,
+      "test_mape": 7.509038030793959,
       "directional_accuracy": 58.754863813229576,
       "best_model": "Ridge",
-      "processing_time": 2.532591
+      "processing_time": 36.997583
     },
     {
       "stock_name": "SEPLAT",
       "success": true,
       "error_message": null,
       "data_points": 270,
-      "test_rmse": 0.09976571080433766,
-      "test_mape": 24.09845621825301,
+      "test_rmse": 0.09976571080433765,
+      "test_mape": 24.098456218253,
       "directional_accuracy": 30.18867924528302,
       "best_model": "Ridge",
-      "processing_time": 1.065315
+      "processing_time": 29.057347
     },
     {
       "stock_name": "AIRTEL",
       "success": true,
       "error_message": null,
       "data_points": 147,
-      "test_rmse": 0.050598870299703086,
-      "test_mape": 19.823921495192717,
-      "directional_accuracy": 31.03448275862069,
+      "test_rmse": 0.0543621712668494,
+      "test_mape": 21.728619770003014,
+      "directional_accuracy": 24.137931034482758,
       "best_model": "Random Forest",
-      "processing_time": 0.862198
+      "processing_time": 32.604757
     },
     {
       "stock_name": "INTERBREW",
       "success": true,
       "error_message": null,
       "data_points": 1286,
-      "test_rmse": 0.04843220787601353,
-      "test_mape": 5.906482682726252,
-      "directional_accuracy": 50.97276264591439,
+      "test_rmse": 0.0474361235595432,
+      "test_mape": 5.818052307101735,
+      "directional_accuracy": 51.36186770428015,
       "best_model": "Random Forest",
-      "processing_time": 2.462524
+      "processing_time": 30.091838
     },
     {
       "stock_name": "FIRSTHOLDCO",
       "success": true,
       "error_message": null,
       "data_points": 1291,
-      "test_rmse": 0.03500729219224091,
-      "test_mape": 6.561616692366943,
+      "test_rmse": 0.035007292192240684,
+      "test_mape": 6.56161669236696,
       "directional_accuracy": 53.48837209302325,
       "best_model": "Ridge",
-      "processing_time": 2.389772
+      "processing_time": 41.191706
     },
     {
       "stock_name": "ETI",
       "success": true,
       "error_message": null,
       "data_points": 1264,
-      "test_rmse": 0.04479180128740982,
-      "test_mape": 7.642787270769534,
+      "test_rmse": 0.044791801287409866,
+      "test_mape": 7.642787270769523,
       "directional_accuracy": 38.492063492063494,
       "best_model": "Ridge",
-      "processing_time": 2.629448
+      "processing_time": 33.746144
     },
     {
       "stock_name": "ZENITH",
       "success": true,
       "error_message": null,
       "data_points": 1293,
-      "test_rmse": 0.04188687677509741,
-      "test_mape": 7.097973365405766,
+      "test_rmse": 0.041886876775097816,
+      "test_mape": 7.097973365405923,
       "directional_accuracy": 59.68992248062015,
       "best_model": "Ridge",
-      "processing_time": 2.603361
+      "processing_time": 34.988982
     },
     {
       "stock_name": "CWG",
       "success": true,
       "error_message": null,
       "data_points": 854,
-      "test_rmse": 0.03427410782198006,
-      "test_mape": 4.9010718640080535,
+      "test_rmse": 0.034274107821979864,
+      "test_mape": 4.9010718640079975,
       "directional_accuracy": 55.88235294117647,
       "best_model": "Ridge",
-      "processing_time": 1.936589
+      "processing_time": 41.323242
     },
     {
       "stock_name": "NESTLE",
       "success": true,
       "error_message": null,
       "data_points": 53,
-      "test_rmse": 0.010269848603724478,
-      "test_mape": 2.8824291721789663,
+      "test_rmse": 0.010269848603724197,
+      "test_mape": 2.882429172178905,
       "directional_accuracy": 0.0,
       "best_model": "Ridge",
-      "processing_time": 0.888849
+      "processing_time": 21.078105
     },
     {
       "stock_name": "NB",
       "success": true,
       "error_message": null,
       "data_points": 1281,
-      "test_rmse": 0.03647018775958634,
-      "test_mape": 6.850286700468714,
+      "test_rmse": 0.03647018775958654,
+      "test_mape": 6.850286700468768,
       "directional_accuracy": 49.609375,
       "best_model": "Ridge",
-      "processing_time": 2.331017
+      "processing_time": 25.04925
     },
     {
       "stock_name": "ACCESS",
       "success": true,
       "error_message": null,
       "data_points": 735,
-      "test_rmse": 0.032037140345708225,
-      "test_mape": 5.621422143325076,
+      "test_rmse": 0.03203714034570821,
+      "test_mape": 5.621422143325079,
       "directional_accuracy": 56.16438356164384,
       "best_model": "Ridge",
-      "processing_time": 1.744365
+      "processing_time": 31.085122
     },
     {
       "stock_name": "WAPCO",
       "success": true,
       "error_message": null,
       "data_points": 1291,
-      "test_rmse": 0.0388526405025931,
-      "test_mape": 10.827725003968387,
-      "directional_accuracy": 46.51162790697674,
+      "test_rmse": 0.038627932871957274,
+      "test_mape": 10.938764458075537,
+      "directional_accuracy": 41.86046511627907,
       "best_model": "Random Forest",
-      "processing_time": 2.84938
+      "processing_time": 43.009677
     }
   ]
 }

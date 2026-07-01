@@ -8537,3 +8537,519 @@ Run: streamlit run app.py
 Run: streamlit run app.py
 2026-04-29 14:01:13,072 | INFO | ======================================================================
 2026-07-01 21:03:53,947 | INFO |    Adding news and policy features for MTNN...
+2026-07-01 21:41:30,124 | INFO | 
+======================================================================
+2026-07-01 21:41:30,124 | INFO | NSE STOCK VOLATILITY PREDICTION PIPELINE
+2026-07-01 21:41:30,125 | INFO | Started: 2026-07-01 21:41:30
+2026-07-01 21:41:30,125 | INFO | ======================================================================
+2026-07-01 21:41:30,129 | INFO | [OK] Found 15 stocks to process
+2026-07-01 21:41:30,131 | INFO | 
+============================================================
+2026-07-01 21:41:30,132 | INFO | Processing: DANGCEM
+2026-07-01 21:41:30,133 | INFO | ============================================================
+2026-07-01 21:41:30,134 | INFO | [1/6] Loading raw data...
+2026-07-01 21:41:30,135 | INFO | [WAIT] Loading DANGCEM from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\DANGCEM.csv
+2026-07-01 21:41:30,135 | INFO |    Trying encoding: utf-8
+2026-07-01 21:41:30,301 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:41:30,305 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:41:30,305 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:41:30,332 | INFO |    First few rows:
+        Date  Price   Open   High    Low     Vol. Change %
+0  3/27/2026  810.0  810.0  810.0  800.0  857.88K    0.00%
+1  3/26/2026  810.0  810.0  810.0  810.0    1.13M    0.00%
+2026-07-01 21:41:30,332 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:41:30,333 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:41:30,428 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:41:30,430 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:41:30,430 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:41:30,431 | INFO | [2/6] Engineering features...
+2026-07-01 21:41:30,437 | INFO |    Adding news and policy features for DANGCEM...
+2026-07-01 21:42:07,667 | INFO |    Created 946 rows with 55 features
+2026-07-01 21:42:07,668 | INFO | [3/6] Saving processed data...
+2026-07-01 21:42:07,888 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\DANGCEM_features.csv
+2026-07-01 21:42:07,889 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:42:07,915 | INFO | [5/6] Training ML models...
+2026-07-01 21:42:09,512 | INFO |    Random Forest: RMSE=0.052415
+2026-07-01 21:42:09,552 | INFO |    Ridge: RMSE=0.050804
+2026-07-01 21:42:11,783 | INFO |    XGBoost: RMSE=0.054207
+2026-07-01 21:42:11,784 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:42:11,816 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\DANGCEM_model_comparison.csv
+2026-07-01 21:42:11,838 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\DANGCEM_predictions.csv
+2026-07-01 21:42:11,845 | INFO | [OK] Best: Ridge, RMSE: 0.050804, MAPE: 10.04%
+2026-07-01 21:42:11,848 | INFO | 
+============================================================
+2026-07-01 21:42:11,849 | INFO | Processing: DANGSUG
+2026-07-01 21:42:11,849 | INFO | ============================================================
+2026-07-01 21:42:11,850 | INFO | [1/6] Loading raw data...
+2026-07-01 21:42:11,851 | INFO | [WAIT] Loading DANGSUG from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\DANGSUG.csv
+2026-07-01 21:42:11,851 | INFO |    Trying encoding: utf-8
+2026-07-01 21:42:11,926 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:42:11,929 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:42:11,929 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:42:11,949 | INFO |    First few rows:
+         Date  Price  Open  High   Low   Vol. Change %
+0  03/27/2026   70.0  71.0  72.0  69.5  3.36M   -1.41%
+1  03/26/2026   71.0  71.5  71.0  71.0  1.19M   -0.70%
+2026-07-01 21:42:11,950 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:42:11,953 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:42:12,027 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:42:12,028 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:42:12,029 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:42:12,029 | INFO | [2/6] Engineering features...
+2026-07-01 21:42:12,037 | INFO |    Adding news and policy features for DANGSUG...
+2026-07-01 21:42:43,157 | INFO |    Created 1285 rows with 55 features
+2026-07-01 21:42:43,157 | INFO | [3/6] Saving processed data...
+2026-07-01 21:42:43,358 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\DANGSUG_features.csv
+2026-07-01 21:42:43,358 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:42:43,368 | INFO | [5/6] Training ML models...
+2026-07-01 21:42:45,705 | INFO |    Random Forest: RMSE=0.043007
+2026-07-01 21:42:45,726 | INFO |    Ridge: RMSE=0.037098
+2026-07-01 21:42:46,892 | INFO |    XGBoost: RMSE=0.047019
+2026-07-01 21:42:46,893 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:42:46,924 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\DANGSUG_model_comparison.csv
+2026-07-01 21:42:46,945 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\DANGSUG_predictions.csv
+2026-07-01 21:42:46,946 | INFO | [OK] Best: Ridge, RMSE: 0.037098, MAPE: 5.32%
+2026-07-01 21:42:46,949 | INFO | 
+============================================================
+2026-07-01 21:42:46,949 | INFO | Processing: MTNN
+2026-07-01 21:42:46,949 | INFO | ============================================================
+2026-07-01 21:42:46,950 | INFO | [1/6] Loading raw data...
+2026-07-01 21:42:46,952 | INFO | [WAIT] Loading MTNN from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\MTNN.csv
+2026-07-01 21:42:46,953 | INFO |    Trying encoding: utf-8
+2026-07-01 21:42:47,025 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:42:47,028 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:42:47,030 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:42:47,043 | INFO |    First few rows:
+         Date  Price   Open   High    Low    Vol. Change %
+0  03/27/2026  718.0  719.1  720.0  717.0   3.77M   -0.15%
+1  03/26/2026  719.1  718.0  720.0  718.0  15.37M    0.15%
+2026-07-01 21:42:47,044 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:42:47,044 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:42:47,091 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:42:47,092 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:42:47,092 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:42:47,093 | INFO | [2/6] Engineering features...
+2026-07-01 21:42:47,098 | INFO |    Adding news and policy features for MTNN...
+2026-07-01 21:43:15,322 | INFO |    Created 1282 rows with 55 features
+2026-07-01 21:43:15,323 | INFO | [3/6] Saving processed data...
+2026-07-01 21:43:15,493 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\MTNN_features.csv
+2026-07-01 21:43:15,494 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:43:15,503 | INFO | [5/6] Training ML models...
+2026-07-01 21:43:17,366 | INFO |    Random Forest: RMSE=0.046310
+2026-07-01 21:43:17,387 | INFO |    Ridge: RMSE=0.050053
+2026-07-01 21:43:18,722 | INFO |    XGBoost: RMSE=0.058028
+2026-07-01 21:43:18,722 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:43:18,750 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\MTNN_model_comparison.csv
+2026-07-01 21:43:18,767 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\MTNN_predictions.csv
+2026-07-01 21:43:18,769 | INFO | [OK] Best: Random Forest, RMSE: 0.046310, MAPE: 10.10%
+2026-07-01 21:43:18,771 | INFO | 
+============================================================
+2026-07-01 21:43:18,772 | INFO | Processing: GTCO
+2026-07-01 21:43:18,773 | INFO | ============================================================
+2026-07-01 21:43:18,773 | INFO | [1/6] Loading raw data...
+2026-07-01 21:43:18,775 | INFO | [WAIT] Loading GTCO from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\GTCO.csv
+2026-07-01 21:43:18,775 | INFO |    Trying encoding: utf-8
+2026-07-01 21:43:18,846 | INFO |    Read 1541 rows with 7 columns using utf-8
+2026-07-01 21:43:18,848 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:43:18,848 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:43:18,864 | INFO |    First few rows:
+         Date  Price    Open   High    Low    Vol. Change %
+0  03/27/2026  116.1  115.40  116.9  112.0  19.18M    0.61%
+1  03/26/2026  115.4  114.55  115.5  115.3   9.53M    0.74%
+2026-07-01 21:43:18,864 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:43:18,866 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:43:18,921 | INFO |    Final DataFrame: 1541 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:43:18,922 | INFO | [OK] Loaded 1541 rows
+2026-07-01 21:43:18,922 | INFO |    Loaded 1541 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:43:18,923 | INFO | [2/6] Engineering features...
+2026-07-01 21:43:18,931 | INFO |    Adding news and policy features for GTCO...
+2026-07-01 21:43:48,876 | INFO |    Created 1288 rows with 55 features
+2026-07-01 21:43:48,877 | INFO | [3/6] Saving processed data...
+2026-07-01 21:43:49,293 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\GTCO_features.csv
+2026-07-01 21:43:49,296 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:43:49,328 | INFO | [5/6] Training ML models...
+2026-07-01 21:43:52,787 | INFO |    Random Forest: RMSE=0.039630
+2026-07-01 21:43:52,927 | INFO |    Ridge: RMSE=0.037164
+2026-07-01 21:43:55,664 | INFO |    XGBoost: RMSE=0.040271
+2026-07-01 21:43:55,664 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:43:55,716 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\GTCO_model_comparison.csv
+2026-07-01 21:43:55,757 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\GTCO_predictions.csv
+2026-07-01 21:43:55,769 | INFO | [OK] Best: Ridge, RMSE: 0.037164, MAPE: 7.51%
+2026-07-01 21:43:55,803 | INFO | 
+============================================================
+2026-07-01 21:43:55,807 | INFO | Processing: SEPLAT
+2026-07-01 21:43:55,837 | INFO | ============================================================
+2026-07-01 21:43:55,852 | INFO | [1/6] Loading raw data...
+2026-07-01 21:43:55,857 | INFO | [WAIT] Loading SEPLAT from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\SEPLAT.csv
+2026-07-01 21:43:55,867 | INFO |    Trying encoding: utf-8
+2026-07-01 21:43:56,050 | INFO |    Read 1546 rows with 7 columns using utf-8
+2026-07-01 21:43:56,053 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:43:56,054 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:43:56,102 | INFO |    First few rows:
+         Date     Price      Open      High       Low     Vol. Change %
+0  03/27/2026  9,099.90  9,099.90  9,450.00  9,000.10   30.88K    0.00%
+1  03/26/2026  9,099.90  9,099.90  9,099.90  9,099.90  137.41K    0.00%
+2026-07-01 21:43:56,103 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:43:56,104 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:43:56,237 | INFO |    Final DataFrame: 591 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:43:56,238 | INFO | [OK] Loaded 591 rows
+2026-07-01 21:43:56,240 | INFO |    Loaded 591 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:43:56,244 | INFO | [2/6] Engineering features...
+2026-07-01 21:43:56,270 | INFO |    Adding news and policy features for SEPLAT...
+2026-07-01 21:44:23,480 | INFO |    Created 270 rows with 55 features
+2026-07-01 21:44:23,481 | INFO | [3/6] Saving processed data...
+2026-07-01 21:44:23,547 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\SEPLAT_features.csv
+2026-07-01 21:44:23,552 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:44:23,591 | INFO | [5/6] Training ML models...
+2026-07-01 21:44:24,483 | INFO |    Random Forest: RMSE=0.100377
+2026-07-01 21:44:24,528 | INFO |    Ridge: RMSE=0.099766
+2026-07-01 21:44:24,809 | INFO |    XGBoost: RMSE=0.153734
+2026-07-01 21:44:24,809 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:44:24,843 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\SEPLAT_model_comparison.csv
+2026-07-01 21:44:24,859 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\SEPLAT_predictions.csv
+2026-07-01 21:44:24,860 | INFO | [OK] Best: Ridge, RMSE: 0.099766, MAPE: 24.10%
+2026-07-01 21:44:24,861 | INFO | 
+============================================================
+2026-07-01 21:44:24,862 | INFO | Processing: AIRTEL
+2026-07-01 21:44:24,863 | INFO | ============================================================
+2026-07-01 21:44:24,865 | INFO | [1/6] Loading raw data...
+2026-07-01 21:44:24,871 | INFO | [WAIT] Loading AIRTEL from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\AIRTEL.csv
+2026-07-01 21:44:24,871 | INFO |    Trying encoding: utf-8
+2026-07-01 21:44:24,953 | INFO |    Read 1530 rows with 7 columns using utf-8
+2026-07-01 21:44:24,954 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:44:24,955 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:44:24,976 | INFO |    First few rows:
+         Date     Price      Open      High       Low   Vol. Change %
+0  03/27/2026  2,497.00  2,497.00  2,746.70  2,497.00  0.42K    0.00%
+1  03/26/2026  2,497.00  2,497.00  2,497.00  2,497.00    NaN    0.00%
+2026-07-01 21:44:24,979 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:44:24,988 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:44:25,057 | INFO |    Final DataFrame: 482 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:44:25,057 | INFO | [OK] Loaded 482 rows
+2026-07-01 21:44:25,058 | INFO |    Loaded 482 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:44:25,058 | INFO | [2/6] Engineering features...
+2026-07-01 21:44:25,067 | INFO |    Adding news and policy features for AIRTEL...
+2026-07-01 21:44:56,140 | INFO |    Created 147 rows with 55 features
+2026-07-01 21:44:56,143 | INFO | [3/6] Saving processed data...
+2026-07-01 21:44:56,200 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\AIRTEL_features.csv
+2026-07-01 21:44:56,201 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:44:56,223 | INFO | [5/6] Training ML models...
+2026-07-01 21:44:57,116 | INFO |    Random Forest: RMSE=0.054362
+2026-07-01 21:44:57,137 | INFO |    Ridge: RMSE=0.097376
+2026-07-01 21:44:57,404 | INFO |    XGBoost: RMSE=0.107524
+2026-07-01 21:44:57,406 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:44:57,445 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\AIRTEL_model_comparison.csv
+2026-07-01 21:44:57,465 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\AIRTEL_predictions.csv
+2026-07-01 21:44:57,466 | INFO | [OK] Best: Random Forest, RMSE: 0.054362, MAPE: 21.73%
+2026-07-01 21:44:57,474 | INFO | 
+============================================================
+2026-07-01 21:44:57,476 | INFO | Processing: INTERBREW
+2026-07-01 21:44:57,476 | INFO | ============================================================
+2026-07-01 21:44:57,477 | INFO | [1/6] Loading raw data...
+2026-07-01 21:44:57,478 | INFO | [WAIT] Loading INTERBREW from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\INTERBREW.csv
+2026-07-01 21:44:57,478 | INFO |    Trying encoding: utf-8
+2026-07-01 21:44:57,557 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:44:57,561 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:44:57,562 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:44:57,581 | INFO |    First few rows:
+         Date  Price  Open  High    Low   Vol. Change %
+0  03/27/2026   13.9  14.4  14.7  13.15  1.69M   -3.47%
+1  03/26/2026   14.4  14.4  14.4  14.40  1.78M    0.00%
+2026-07-01 21:44:57,582 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:44:57,587 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:44:57,643 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:44:57,644 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:44:57,644 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:44:57,645 | INFO | [2/6] Engineering features...
+2026-07-01 21:44:57,659 | INFO |    Adding news and policy features for INTERBREW...
+2026-07-01 21:45:23,017 | INFO |    Created 1286 rows with 55 features
+2026-07-01 21:45:23,018 | INFO | [3/6] Saving processed data...
+2026-07-01 21:45:23,550 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\INTERBREW_features.csv
+2026-07-01 21:45:23,556 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:45:23,583 | INFO | [5/6] Training ML models...
+2026-07-01 21:45:25,943 | INFO |    Random Forest: RMSE=0.047436
+2026-07-01 21:45:25,972 | INFO |    Ridge: RMSE=0.054270
+2026-07-01 21:45:27,507 | INFO |    XGBoost: RMSE=0.053817
+2026-07-01 21:45:27,508 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:45:27,536 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\INTERBREW_model_comparison.csv
+2026-07-01 21:45:27,565 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\INTERBREW_predictions.csv
+2026-07-01 21:45:27,566 | INFO | [OK] Best: Random Forest, RMSE: 0.047436, MAPE: 5.82%
+2026-07-01 21:45:27,569 | INFO | 
+============================================================
+2026-07-01 21:45:27,570 | INFO | Processing: FIRSTHOLDCO
+2026-07-01 21:45:27,570 | INFO | ============================================================
+2026-07-01 21:45:27,571 | INFO | [1/6] Loading raw data...
+2026-07-01 21:45:27,573 | INFO | [WAIT] Loading FIRSTHOLDCO from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\FIRSTHOLDCO.csv
+2026-07-01 21:45:27,578 | INFO |    Trying encoding: utf-8
+2026-07-01 21:45:27,661 | INFO |    Read 1544 rows with 7 columns using utf-8
+2026-07-01 21:45:27,664 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:45:27,665 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:45:27,685 | INFO |    First few rows:
+         Date  Price  Open  High    Low   Vol. Change %
+0  03/27/2026   50.5  50.5  51.8  50.45  5.47M   -0.98%
+1  03/26/2026   51.0  51.0  51.5  50.90  7.24M    0.10%
+2026-07-01 21:45:27,686 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:45:27,687 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:45:27,752 | INFO |    Final DataFrame: 1544 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:45:27,752 | INFO | [OK] Loaded 1544 rows
+2026-07-01 21:45:27,753 | INFO |    Loaded 1544 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:45:27,754 | INFO | [2/6] Engineering features...
+2026-07-01 21:45:27,763 | INFO |    Adding news and policy features for FIRSTHOLDCO...
+2026-07-01 21:46:04,105 | INFO |    Created 1291 rows with 55 features
+2026-07-01 21:46:04,106 | INFO | [3/6] Saving processed data...
+2026-07-01 21:46:04,431 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\FIRSTHOLDCO_features.csv
+2026-07-01 21:46:04,431 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:46:04,460 | INFO | [5/6] Training ML models...
+2026-07-01 21:46:06,746 | INFO |    Random Forest: RMSE=0.038387
+2026-07-01 21:46:06,807 | INFO |    Ridge: RMSE=0.035007
+2026-07-01 21:46:08,700 | INFO |    XGBoost: RMSE=0.044363
+2026-07-01 21:46:08,700 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:46:08,732 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\FIRSTHOLDCO_model_comparison.csv
+2026-07-01 21:46:08,758 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\FIRSTHOLDCO_predictions.csv
+2026-07-01 21:46:08,761 | INFO | [OK] Best: Ridge, RMSE: 0.035007, MAPE: 6.56%
+2026-07-01 21:46:08,766 | INFO | 
+============================================================
+2026-07-01 21:46:08,767 | INFO | Processing: ETI
+2026-07-01 21:46:08,772 | INFO | ============================================================
+2026-07-01 21:46:08,772 | INFO | [1/6] Loading raw data...
+2026-07-01 21:46:08,773 | INFO | [WAIT] Loading ETI from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\ETI.csv
+2026-07-01 21:46:08,774 | INFO |    Trying encoding: utf-8
+2026-07-01 21:46:08,844 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:46:08,846 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:46:08,847 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:46:08,866 | INFO |    First few rows:
+         Date  Price  Open  High   Low     Vol. Change %
+0  03/27/2026   46.0  47.0  48.0  44.6  218.71K    0.00%
+1  03/26/2026   46.0  46.0  46.0  46.0  345.80K    0.00%
+2026-07-01 21:46:08,868 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:46:08,872 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:46:08,931 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:46:08,932 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:46:08,932 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:46:08,933 | INFO | [2/6] Engineering features...
+2026-07-01 21:46:08,941 | INFO |    Adding news and policy features for ETI...
+2026-07-01 21:46:38,247 | INFO |    Created 1264 rows with 55 features
+2026-07-01 21:46:38,248 | INFO | [3/6] Saving processed data...
+2026-07-01 21:46:38,660 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\ETI_features.csv
+2026-07-01 21:46:38,687 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:46:38,750 | INFO | [5/6] Training ML models...
+2026-07-01 21:46:41,161 | INFO |    Random Forest: RMSE=0.059881
+2026-07-01 21:46:41,178 | INFO |    Ridge: RMSE=0.044792
+2026-07-01 21:46:42,457 | INFO |    XGBoost: RMSE=0.088833
+2026-07-01 21:46:42,458 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:46:42,488 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\ETI_model_comparison.csv
+2026-07-01 21:46:42,510 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\ETI_predictions.csv
+2026-07-01 21:46:42,512 | INFO | [OK] Best: Ridge, RMSE: 0.044792, MAPE: 7.64%
+2026-07-01 21:46:42,525 | INFO | 
+============================================================
+2026-07-01 21:46:42,525 | INFO | Processing: ZENITH
+2026-07-01 21:46:42,525 | INFO | ============================================================
+2026-07-01 21:46:42,526 | INFO | [1/6] Loading raw data...
+2026-07-01 21:46:42,526 | INFO | [WAIT] Loading ZENITH from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\ZENITH.csv
+2026-07-01 21:46:42,527 | INFO |    Trying encoding: utf-8
+2026-07-01 21:46:42,606 | INFO |    Read 1546 rows with 7 columns using utf-8
+2026-07-01 21:46:42,607 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:46:42,608 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:46:42,619 | INFO |    First few rows:
+         Date   Price    Open    High    Low    Vol. Change %
+0  03/27/2026  103.00  103.05  105.00  102.5  13.81M   -0.05%
+1  03/26/2026  103.05  101.50  104.45  103.0  17.08M    1.53%
+2026-07-01 21:46:42,621 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:46:42,626 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:46:42,687 | INFO |    Final DataFrame: 1546 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:46:42,688 | INFO | [OK] Loaded 1546 rows
+2026-07-01 21:46:42,689 | INFO |    Loaded 1546 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:46:42,690 | INFO | [2/6] Engineering features...
+2026-07-01 21:46:42,695 | INFO |    Adding news and policy features for ZENITH...
+2026-07-01 21:47:10,970 | INFO |    Created 1293 rows with 55 features
+2026-07-01 21:47:10,971 | INFO | [3/6] Saving processed data...
+2026-07-01 21:47:11,324 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\ZENITH_features.csv
+2026-07-01 21:47:11,330 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:47:11,373 | INFO | [5/6] Training ML models...
+2026-07-01 21:47:14,691 | INFO |    Random Forest: RMSE=0.044826
+2026-07-01 21:47:14,735 | INFO |    Ridge: RMSE=0.041887
+2026-07-01 21:47:17,453 | INFO |    XGBoost: RMSE=0.051313
+2026-07-01 21:47:17,454 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:47:17,485 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\ZENITH_model_comparison.csv
+2026-07-01 21:47:17,512 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\ZENITH_predictions.csv
+2026-07-01 21:47:17,514 | INFO | [OK] Best: Ridge, RMSE: 0.041887, MAPE: 7.10%
+2026-07-01 21:47:17,518 | INFO | 
+============================================================
+2026-07-01 21:47:17,518 | INFO | Processing: CWG
+2026-07-01 21:47:17,518 | INFO | ============================================================
+2026-07-01 21:47:17,526 | INFO | [1/6] Loading raw data...
+2026-07-01 21:47:17,528 | INFO | [WAIT] Loading CWG from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\CWG.csv
+2026-07-01 21:47:17,530 | INFO |    Trying encoding: utf-8
+2026-07-01 21:47:17,645 | INFO |    Read 1107 rows with 7 columns using utf-8
+2026-07-01 21:47:17,647 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:47:17,648 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:47:17,674 | INFO |    First few rows:
+         Date  Price  Open  High    Low   Vol. Change %
+0  03/27/2026   22.0  22.9  22.0  22.00  1.42M   -3.93%
+1  03/26/2026   22.9  21.7  22.9  22.45  2.58M    5.53%
+2026-07-01 21:47:17,680 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:47:17,683 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:47:17,762 | INFO |    Final DataFrame: 1107 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:47:17,764 | INFO | [OK] Loaded 1107 rows
+2026-07-01 21:47:17,765 | INFO |    Loaded 1107 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:47:17,765 | INFO | [2/6] Engineering features...
+2026-07-01 21:47:17,777 | INFO |    Adding news and policy features for CWG...
+2026-07-01 21:47:54,641 | INFO |    Created 854 rows with 55 features
+2026-07-01 21:47:54,642 | INFO | [3/6] Saving processed data...
+2026-07-01 21:47:54,772 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\CWG_features.csv
+2026-07-01 21:47:54,772 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:47:54,782 | INFO | [5/6] Training ML models...
+2026-07-01 21:47:56,761 | INFO |    Random Forest: RMSE=0.045587
+2026-07-01 21:47:56,780 | INFO |    Ridge: RMSE=0.034274
+2026-07-01 21:47:58,784 | INFO |    XGBoost: RMSE=0.082253
+2026-07-01 21:47:58,784 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:47:58,808 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\CWG_model_comparison.csv
+2026-07-01 21:47:58,840 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\CWG_predictions.csv
+2026-07-01 21:47:58,841 | INFO | [OK] Best: Ridge, RMSE: 0.034274, MAPE: 4.90%
+2026-07-01 21:47:58,844 | INFO | 
+============================================================
+2026-07-01 21:47:58,846 | INFO | Processing: NESTLE
+2026-07-01 21:47:58,858 | INFO | ============================================================
+2026-07-01 21:47:58,860 | INFO | [1/6] Loading raw data...
+2026-07-01 21:47:58,870 | INFO | [WAIT] Loading NESTLE from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\NESTLE.csv
+2026-07-01 21:47:58,871 | INFO |    Trying encoding: utf-8
+2026-07-01 21:47:58,979 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:47:58,981 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:47:58,984 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:47:59,000 | INFO |    First few rows:
+         Date     Price      Open      High       Low    Vol. Change %
+0  03/27/2026  3,395.00  3,395.00  3,395.00  3,395.00  66.01K    0.00%
+1  03/26/2026  3,395.00  3,395.00  3,395.00  3,395.00  25.42K    0.00%
+2026-07-01 21:47:59,003 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:47:59,003 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:47:59,086 | INFO |    Final DataFrame: 346 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:47:59,087 | INFO | [OK] Loaded 346 rows
+2026-07-01 21:47:59,087 | INFO |    Loaded 346 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:47:59,088 | INFO | [2/6] Engineering features...
+2026-07-01 21:47:59,101 | INFO |    Adding news and policy features for NESTLE...
+2026-07-01 21:48:19,007 | INFO |    Created 53 rows with 55 features
+2026-07-01 21:48:19,008 | INFO | [3/6] Saving processed data...
+2026-07-01 21:48:19,024 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\NESTLE_features.csv
+2026-07-01 21:48:19,027 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:48:19,051 | INFO | [5/6] Training ML models...
+2026-07-01 21:48:19,751 | INFO |    Random Forest: RMSE=0.053484
+2026-07-01 21:48:19,765 | INFO |    Ridge: RMSE=0.010270
+2026-07-01 21:48:19,882 | INFO |    XGBoost: RMSE=0.134238
+2026-07-01 21:48:19,882 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:48:19,909 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\NESTLE_model_comparison.csv
+2026-07-01 21:48:19,921 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\NESTLE_predictions.csv
+2026-07-01 21:48:19,923 | INFO | [OK] Best: Ridge, RMSE: 0.010270, MAPE: 2.88%
+2026-07-01 21:48:19,925 | INFO | 
+============================================================
+2026-07-01 21:48:19,925 | INFO | Processing: NB
+2026-07-01 21:48:19,926 | INFO | ============================================================
+2026-07-01 21:48:19,927 | INFO | [1/6] Loading raw data...
+2026-07-01 21:48:19,933 | INFO | [WAIT] Loading NB from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\NB.csv
+2026-07-01 21:48:19,933 | INFO |    Trying encoding: utf-8
+2026-07-01 21:48:20,006 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:48:20,009 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:48:20,011 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:48:20,034 | INFO |    First few rows:
+         Date  Price   Open  High   Low    Vol. Change %
+0  03/27/2026   71.0  73.30  71.0  70.7  19.20M   -3.14%
+1  03/26/2026   73.3  71.95  74.0  73.3   4.86M    1.88%
+2026-07-01 21:48:20,036 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:48:20,038 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:48:20,103 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:48:20,103 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:48:20,104 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:48:20,104 | INFO | [2/6] Engineering features...
+2026-07-01 21:48:20,114 | INFO |    Adding news and policy features for NB...
+2026-07-01 21:48:40,917 | INFO |    Created 1281 rows with 55 features
+2026-07-01 21:48:40,917 | INFO | [3/6] Saving processed data...
+2026-07-01 21:48:41,199 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\NB_features.csv
+2026-07-01 21:48:41,200 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:48:41,216 | INFO | [5/6] Training ML models...
+2026-07-01 21:48:43,414 | INFO |    Random Forest: RMSE=0.042237
+2026-07-01 21:48:43,433 | INFO |    Ridge: RMSE=0.036470
+2026-07-01 21:48:44,914 | INFO |    XGBoost: RMSE=0.051644
+2026-07-01 21:48:44,915 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:48:44,947 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\NB_model_comparison.csv
+2026-07-01 21:48:44,968 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\NB_predictions.csv
+2026-07-01 21:48:44,974 | INFO | [OK] Best: Ridge, RMSE: 0.036470, MAPE: 6.85%
+2026-07-01 21:48:44,982 | INFO | 
+============================================================
+2026-07-01 21:48:44,982 | INFO | Processing: ACCESS
+2026-07-01 21:48:44,983 | INFO | ============================================================
+2026-07-01 21:48:44,983 | INFO | [1/6] Loading raw data...
+2026-07-01 21:48:44,985 | INFO | [WAIT] Loading ACCESS from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\ACCESS.csv
+2026-07-01 21:48:44,986 | INFO |    Trying encoding: utf-8
+2026-07-01 21:48:45,060 | INFO |    Read 988 rows with 7 columns using utf-8
+2026-07-01 21:48:45,062 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:48:45,063 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:48:45,080 | INFO |    First few rows:
+        Date  Price   Open   High    Low     Vol. Change %
+0  3/27/2026   26.0  26.00  26.10  25.85   29.43M    0.00%
+1  3/26/2026   26.0  26.05  26.05  25.80  134.59M   -0.19%
+2026-07-01 21:48:45,080 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:48:45,082 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:48:45,138 | INFO |    Final DataFrame: 988 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:48:45,139 | INFO | [OK] Loaded 988 rows
+2026-07-01 21:48:45,140 | INFO |    Loaded 988 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:48:45,141 | INFO | [2/6] Engineering features...
+2026-07-01 21:48:45,146 | INFO |    Adding news and policy features for ACCESS...
+2026-07-01 21:49:13,232 | INFO |    Created 735 rows with 55 features
+2026-07-01 21:49:13,233 | INFO | [3/6] Saving processed data...
+2026-07-01 21:49:13,430 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\ACCESS_features.csv
+2026-07-01 21:49:13,432 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:49:13,442 | INFO | [5/6] Training ML models...
+2026-07-01 21:49:14,957 | INFO |    Random Forest: RMSE=0.037612
+2026-07-01 21:49:14,992 | INFO |    Ridge: RMSE=0.032037
+2026-07-01 21:49:16,013 | INFO |    XGBoost: RMSE=0.040395
+2026-07-01 21:49:16,013 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:49:16,040 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\ACCESS_model_comparison.csv
+2026-07-01 21:49:16,065 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\ACCESS_predictions.csv
+2026-07-01 21:49:16,067 | INFO | [OK] Best: Ridge, RMSE: 0.032037, MAPE: 5.62%
+2026-07-01 21:49:16,070 | INFO | 
+============================================================
+2026-07-01 21:49:16,071 | INFO | Processing: WAPCO
+2026-07-01 21:49:16,073 | INFO | ============================================================
+2026-07-01 21:49:16,073 | INFO | [1/6] Loading raw data...
+2026-07-01 21:49:16,074 | INFO | [WAIT] Loading WAPCO from C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\raw\WAPCO.csv
+2026-07-01 21:49:16,074 | INFO |    Trying encoding: utf-8
+2026-07-01 21:49:16,145 | INFO |    Read 1545 rows with 7 columns using utf-8
+2026-07-01 21:49:16,148 | INFO |    Original columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:49:16,148 | INFO |    Cleaned columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Vol.', 'Change %']
+2026-07-01 21:49:16,166 | INFO |    First few rows:
+         Date  Price   Open   High    Low   Vol. Change %
+0  03/27/2026  224.0  224.0  224.0  215.0  2.37M    0.00%
+1  03/26/2026  224.0  227.5  224.0  224.0  5.98M   -1.54%
+2026-07-01 21:49:16,167 | INFO |    Column map: {'date': 'Date', 'price': 'Price', 'open': 'Open', 'high': 'High', 'low': 'Low', 'vol.': 'Vol.', 'change_%': 'Change %'}
+2026-07-01 21:49:16,167 | INFO |    Matched columns: {'Price': 'Price', 'Open': 'Open', 'High': 'High', 'Low': 'Low'}
+2026-07-01 21:49:16,221 | INFO |    Final DataFrame: 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:49:16,221 | INFO | [OK] Loaded 1545 rows
+2026-07-01 21:49:16,222 | INFO |    Loaded 1545 rows, columns: ['Date', 'Price', 'Open', 'High', 'Low', 'Volume']
+2026-07-01 21:49:16,222 | INFO | [2/6] Engineering features...
+2026-07-01 21:49:16,231 | INFO |    Adding news and policy features for WAPCO...
+2026-07-01 21:49:54,633 | INFO |    Created 1291 rows with 55 features
+2026-07-01 21:49:54,634 | INFO | [3/6] Saving processed data...
+2026-07-01 21:49:54,934 | INFO |    Saved: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\data\processed\WAPCO_features.csv
+2026-07-01 21:49:54,936 | INFO | [4/6] Preparing ML dataset...
+2026-07-01 21:49:54,953 | INFO | [5/6] Training ML models...
+2026-07-01 21:49:57,392 | INFO |    Random Forest: RMSE=0.038628
+2026-07-01 21:49:57,422 | INFO |    Ridge: RMSE=0.043650
+2026-07-01 21:49:59,016 | INFO |    XGBoost: RMSE=0.055284
+2026-07-01 21:49:59,016 | INFO | [6/6] Evaluating and saving results...
+2026-07-01 21:49:59,055 | INFO |    Saved comparison: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables\WAPCO_model_comparison.csv
+2026-07-01 21:49:59,078 | INFO |    Saved predictions: C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\forecasts\WAPCO_predictions.csv
+2026-07-01 21:49:59,080 | INFO | [OK] Best: Random Forest, RMSE: 0.038628, MAPE: 10.94%
+2026-07-01 21:49:59,095 | INFO | 
+[OK] Reports saved to C:\Users\DREAMUSER\Documents\NSE Volatility Project\NSE_Volatility_Project\results\tables
+2026-07-01 21:49:59,096 | INFO | 
+======================================================================
+2026-07-01 21:49:59,097 | INFO | PIPELINE COMPLETE
+2026-07-01 21:49:59,098 | INFO | Success: 15/15 stocks
+2026-07-01 21:49:59,099 | INFO | Time: 8.5 minutes
+2026-07-01 21:49:59,100 | INFO | ======================================================================
+2026-07-01 21:49:59,100 | INFO | Dashboard-compatible files created:
+2026-07-01 21:49:59,100 | INFO |    - data/processed/{stock}_features.csv
+2026-07-01 21:49:59,105 | INFO |    - results/tables/{stock}_model_comparison.csv
+2026-07-01 21:49:59,107 | INFO |    - results/forecasts/{stock}_predictions.csv
+2026-07-01 21:49:59,107 | INFO | 
+Run: streamlit run app.py
+2026-07-01 21:49:59,108 | INFO | ======================================================================
