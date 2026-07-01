@@ -21,6 +21,11 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
+try:
+    from .news_features import add_news_features_to_dataframe
+except ImportError:  # pragma: no cover - fallback for direct execution
+    from news_features import add_news_features_to_dataframe
+
 warnings.filterwarnings('ignore')
 
 BASE_DIR = Path(__file__).parent.parent
@@ -276,13 +281,22 @@ class VolatilityFeatures:
         self.df['simple_return'] = self.df['Price'].pct_change()
         return self.df
 
-    def create_all_features(self):
-        """Create comprehensive feature set"""
+    def create_all_features(self, stock_name: Optional[str] = None):
+        """Create comprehensive feature set and optionally enrich it with news/policy features."""
         df = self.df.copy()
 
         # Ensure returns exist
         if 'log_return' not in df.columns:
             df = self.calculate_returns()
+
+        if stock_name is None and 'stock' in df.columns and not df['stock'].empty:
+            stock_name = str(df['stock'].iloc[0])
+
+        if stock_name is not None:
+            logger.info(f"   Adding news and policy features for {stock_name}...")
+            df = add_news_features_to_dataframe(df, stock_name)
+        else:
+            logger.info("   No stock name provided; skipping news feature enrichment")
 
         # Historical volatility
         for window in [5, 10, 21, 63, 126, 252]:
@@ -642,7 +656,7 @@ def process_stock(stock_name: str, filename: str) -> StockResult:
         # Step 2: Feature Engineering
         logger.info("[2/6] Engineering features...")
         feature_eng = VolatilityFeatures(df)
-        df_features = feature_eng.create_all_features()
+        df_features = feature_eng.create_all_features(stock_name=stock_name)
 
         if len(df_features) < 50:
             raise ValueError(f"Insufficient data after features: {len(df_features)}")
