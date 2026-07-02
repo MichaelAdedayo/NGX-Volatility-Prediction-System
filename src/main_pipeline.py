@@ -357,6 +357,8 @@ def prepare_ml_dataset(df: pd.DataFrame, target_col: str = 'target_vol_1d'):
         'Date', 'Price', 'Open', 'High', 'Low', 'Volume',
         'log_return', 'simple_return', target_col
     ] and not c.startswith('target')]
+    news_like_cols = [c for c in feature_cols if c.startswith('news_') or c.startswith('policy_') or 'sentiment' in c or 'signal' in c]
+    feature_cols = list(dict.fromkeys([c for c in feature_cols if pd.api.types.is_numeric_dtype(df[c])] + news_like_cols))
 
     df_clean = df.dropna()
 

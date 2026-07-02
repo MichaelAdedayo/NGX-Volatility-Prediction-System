@@ -231,9 +231,10 @@ def prepare_ml_dataset(df, target_col='target_vol_1d', test_size=0.2,
     
     feature_cols = [col for col in df.columns if col not in exclude_cols]
     
-    # Remove any remaining non-numeric columns
-    feature_cols = [col for col in feature_cols 
-                   if pd.api.types.is_numeric_dtype(df[col])]
+    # Remove any remaining non-numeric columns, but explicitly retain news/policy features
+    numeric_cols = [col for col in feature_cols if pd.api.types.is_numeric_dtype(df[col])]
+    news_like_cols = [col for col in feature_cols if col.startswith('news_') or col.startswith('policy_') or 'sentiment' in col or 'signal' in col]
+    feature_cols = list(dict.fromkeys(numeric_cols + news_like_cols))
     
     X = df[feature_cols].ffill().fillna(0)
     y = df[target_col]

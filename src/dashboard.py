@@ -1653,6 +1653,36 @@ def create_streamlit_app():
     c3.metric("Features", summary['features'])
     c4.metric("Status", "Trained" if controller.ml_suite else "Loaded")
 
+    if controller.current_data is not None:
+        news_cols = [
+            'news_article_count',
+            'news_sentiment_score',
+            'news_policy_flag',
+            'news_volatility_adjustment'
+        ]
+        if any(col in controller.current_data.columns for col in news_cols):
+            latest = controller.current_data.iloc[-1]
+            adjustment = float(latest.get('news_volatility_adjustment', 0.0))
+            sentiment = float(latest.get('news_sentiment_score', 0.0))
+            article_count = float(latest.get('news_article_count', 0.0))
+            policy_flag = float(latest.get('news_policy_flag', 0.0))
+            if adjustment > 0.01:
+                signal_label = 'Upward'
+            elif adjustment < -0.01:
+                signal_label = 'Downward'
+            else:
+                signal_label = 'Neutral'
+
+            st.markdown('---')
+            st.subheader('News & Policy Signal')
+            col_a, col_b, col_c = st.columns(3)
+            col_a.metric('News Signal', signal_label)
+            col_b.metric('Sentiment', f"{sentiment:.3f}")
+            col_c.metric('Policy Impact', f"{policy_flag:.0f}")
+            st.caption(
+                f"Latest snapshot: {article_count:.0f} related article(s), news-driven volatility adjustment of {adjustment:.3f}."
+            )
+
     st.sidebar.markdown("---")
     if st.sidebar.button("Back to Dashboard", type="primary", use_container_width=True):
         st.session_state.loaded_stock = None
