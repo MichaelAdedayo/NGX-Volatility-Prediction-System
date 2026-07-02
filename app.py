@@ -552,7 +552,7 @@ def render_login_page():
         st.markdown("""
         <div class="login-footer">
             B.Sc. Computer Science Final Year Project<br>
-            Crawford University | © 2026 NGX Volatilitys Prediction System
+            Crawford University | © 2026 NGX Volatility Prediction System
         </div>
         """, unsafe_allow_html=True)
 

@@ -951,6 +951,61 @@ class DashboardController:
             logger.debug(f"Volatility regime chart failed: {e}")
             return None
 
+    def _build_news_forecast_context(self) -> Dict[str, Any]:
+        """Turn the latest news features into a plain-language forecast context."""
+        if self.current_data is None:
+            return {}
+
+        required_cols = ['news_article_count', 'news_sentiment_score', 'news_policy_flag', 'news_volatility_adjustment']
+        if not any(col in self.current_data.columns for col in required_cols):
+            return {}
+
+        latest = self.current_data.iloc[-1]
+        article_count = float(latest.get('news_article_count', 0.0))
+        sentiment_score = float(latest.get('news_sentiment_score', 0.0))
+        policy_flag = float(latest.get('news_policy_flag', 0.0))
+        negative_ratio = float(latest.get('news_negative_ratio', 0.0))
+        adjustment = float(latest.get('news_volatility_adjustment', 0.0))
+
+        if article_count <= 0:
+            tone = 'quiet'
+        elif sentiment_score > 0.15:
+            tone = 'constructive'
+        elif sentiment_score < -0.15 or negative_ratio > 0.25:
+            tone = 'cautious'
+        else:
+            tone = 'mixed'
+
+        policy_context = (
+            'Policy and macroeconomic developments are part of the backdrop.'
+            if policy_flag > 0.5 else
+            'Policy and macroeconomic developments are not a major driver right now.'
+        )
+
+        direction = 'upward' if adjustment > 0.01 else 'downward' if adjustment < -0.01 else 'roughly neutral'
+        magnitude_pct = round(abs(adjustment) * 100, 1)
+        if article_count > 0:
+            summary_text = (
+                f"Recent headlines suggest a {tone} tone for {self.current_stock or 'this stock'}. "
+                f"{policy_context} With {int(article_count)} relevant article(s), the model nudges next-day volatility "
+                f"{direction} by about {magnitude_pct:.1f}%."
+            )
+        else:
+            summary_text = (
+                f"Recent headlines suggest a {tone} tone for {self.current_stock or 'this stock'}. "
+                f"{policy_context} Because no fresh headlines were found, the forecast stays anchored to the recent volatility pattern."
+            )
+
+        return {
+            'article_count': article_count,
+            'sentiment_score': sentiment_score,
+            'policy_flag': policy_flag,
+            'negative_ratio': negative_ratio,
+            'adjustment': adjustment,
+            'direction': direction,
+            'summary_text': summary_text,
+        }
+
     def forecast_next_day(self) -> Optional[Dict]:
         """
         Generate next-day volatility forecast using the most recent data.
@@ -972,14 +1027,24 @@ class DashboardController:
                 if forecasts:
                     ensemble_forecast = np.mean(list(forecasts.values()))
 
-                    news_adjustment = 0.0
-                    if 'news_volatility_adjustment' in self.current_data.columns:
+                    news_context = self._build_news_forecast_context()
+                    news_adjustment = news_context.get('adjustment', 0.0) if news_context else 0.0
+                    if news_context:
+                        news_pressure = news_adjustment
+                        if news_context.get('policy_flag', 0.0) > 0.5:
+                            news_pressure += 0.01
+                        if news_context.get('sentiment_score', 0.0) < -0.15:
+                            news_pressure += 0.01
+                        elif news_context.get('sentiment_score', 0.0) > 0.15:
+                            news_pressure -= 0.01
+                        news_pressure = float(np.clip(news_pressure, -0.12, 0.12))
+                        ensemble_forecast = ensemble_forecast * (1 + news_pressure)
+                    elif 'news_volatility_adjustment' in self.current_data.columns:
                         recent_news_adjustment = self.current_data['news_volatility_adjustment'].dropna()
                         if len(recent_news_adjustment) > 0:
                             news_adjustment = float(recent_news_adjustment.iloc[-1])
-
-                    if abs(news_adjustment) > 0:
-                        ensemble_forecast = ensemble_forecast * (1 + news_adjustment)
+                        if abs(news_adjustment) > 0:
+                            ensemble_forecast = ensemble_forecast * (1 + news_adjustment)
 
                     # Use the latest available data date for forecasting, not only the test set end.
                     last_date = pd.to_datetime(self.current_data['Date']).max()
@@ -1000,6 +1065,8 @@ class DashboardController:
 
                     forecast_summary = None
                     stock_name = self.current_stock or "This stock"
+                    news_context = self._build_news_forecast_context()
+                    news_context_text = news_context.get('summary_text', '') if news_context else ''
 
                     # Classify volatility level
                     def classify_volatility(vol):
@@ -1017,48 +1084,39 @@ class DashboardController:
                     if historical_vol is not None and historical_vol > 0:
                         change_pct = (ensemble_forecast - historical_vol) / historical_vol * 100
 
-                        if abs(news_adjustment) > 0:
-                            news_note = (
-                                " Recent news and policy signals are nudging the outlook upward."
-                                if news_adjustment > 0 else
-                                " Recent news and policy signals are tempering the outlook."
-                            )
-                        else:
-                            news_note = ""
-
                         if change_pct > 5:
                             forecast_summary = (
-                                f" **{stock_name}** is heating up! Next-day volatility is expected to spike by "
+                                f"{news_context_text} "
+                                f"**{stock_name}** is heating up! Next-day volatility is expected to spike by "
                                 f"**{change_pct:.1f}%** above recent levels (from {historical_vol:.3f} to {ensemble_forecast:.3f}). "
                                 f"This signals **elevated risk** with potentially larger price swings. "
-                                f"{news_note}"
-                                f" **Investors**: Consider tightening stop losses and reducing position sizes. "
+                                f"**Investors**: Consider tightening stop losses and reducing position sizes. "
                                 f"**Traders**: Watch for higher trading ranges and potential breakout opportunities."
                             )
                         elif change_pct < -5:
                             forecast_summary = (
-                                f" **{stock_name}** is calming down! Next-day volatility is expected to decline by "
+                                f"{news_context_text} "
+                                f"**{stock_name}** is calming down! Next-day volatility is expected to decline by "
                                 f"**{abs(change_pct):.1f}%** below recent levels (from {historical_vol:.3f} to {ensemble_forecast:.3f}). "
                                 f"This suggests **more stable trading conditions** ahead with tighter price ranges. "
-                                f"{news_note}"
-                                f" **Investors**: A good window for position adjustments or rebalancing. "
+                                f"**Investors**: A good window for position adjustments or rebalancing. "
                                 f"**Traders**: Expect reduced trading ranges and potential consolidation patterns."
                             )
                         else:
                             forecast_summary = (
-                                f" **{stock_name}** is holding steady! Next-day volatility is expected to remain "
+                                f"{news_context_text} "
+                                f"**{stock_name}** is holding steady! Next-day volatility is expected to remain "
                                 f"**similar to recent levels** (±5%), staying around {ensemble_forecast:.3f}. "
                                 f"Market conditions appear {vol_desc} and predictable. "
-                                f"{news_note}"
-                                f" **Investors**: Continue with your current risk management strategy. "
+                                f"**Investors**: Continue with your current risk management strategy. "
                                 f"**Traders**: Maintain current position sizing and trend-following strategies. "
                                 f"**Monitor**: Watch for any news or market catalysts that could change this outlook."
                             )
                     else:
                         forecast_summary = (
+                            f"{news_context_text} "
                             f"**{stock_name}** forecast shows {vol_level} volatility ({ensemble_forecast:.3f}). "
                             f"Limited historical data is available, but models predict {vol_desc} market conditions. "
-                            f"{news_note}"
                             f"Use these predictions alongside other technical indicators for best results."
                         )
 
@@ -1115,14 +1173,24 @@ class DashboardController:
             # Calculate ensemble forecast (average of all models)
             ensemble_forecast = np.mean(list(forecasts.values()))
 
-            news_adjustment = 0.0
-            if 'news_volatility_adjustment' in self.current_data.columns:
+            news_context = self._build_news_forecast_context()
+            news_adjustment = news_context.get('adjustment', 0.0) if news_context else 0.0
+            if news_context:
+                news_pressure = news_adjustment
+                if news_context.get('policy_flag', 0.0) > 0.5:
+                    news_pressure += 0.01
+                if news_context.get('sentiment_score', 0.0) < -0.15:
+                    news_pressure += 0.01
+                elif news_context.get('sentiment_score', 0.0) > 0.15:
+                    news_pressure -= 0.01
+                news_pressure = float(np.clip(news_pressure, -0.12, 0.12))
+                ensemble_forecast = ensemble_forecast * (1 + news_pressure)
+            elif 'news_volatility_adjustment' in self.current_data.columns:
                 recent_news_adjustment = self.current_data['news_volatility_adjustment'].dropna()
                 if len(recent_news_adjustment) > 0:
                     news_adjustment = float(recent_news_adjustment.iloc[-1])
-
-            if abs(news_adjustment) > 0:
-                ensemble_forecast = ensemble_forecast * (1 + news_adjustment)
+                if abs(news_adjustment) > 0:
+                    ensemble_forecast = ensemble_forecast * (1 + news_adjustment)
 
             # Get the date for tomorrow
             last_date = pd.to_datetime(self.current_data['Date'].iloc[-1])
@@ -1653,36 +1721,6 @@ def create_streamlit_app():
     c3.metric("Features", summary['features'])
     c4.metric("Status", "Trained" if controller.ml_suite else "Loaded")
 
-    if controller.current_data is not None:
-        news_cols = [
-            'news_article_count',
-            'news_sentiment_score',
-            'news_policy_flag',
-            'news_volatility_adjustment'
-        ]
-        if any(col in controller.current_data.columns for col in news_cols):
-            latest = controller.current_data.iloc[-1]
-            adjustment = float(latest.get('news_volatility_adjustment', 0.0))
-            sentiment = float(latest.get('news_sentiment_score', 0.0))
-            article_count = float(latest.get('news_article_count', 0.0))
-            policy_flag = float(latest.get('news_policy_flag', 0.0))
-            if adjustment > 0.01:
-                signal_label = 'Upward'
-            elif adjustment < -0.01:
-                signal_label = 'Downward'
-            else:
-                signal_label = 'Neutral'
-
-            st.markdown('---')
-            st.subheader('News & Policy Signal')
-            col_a, col_b, col_c = st.columns(3)
-            col_a.metric('News Signal', signal_label)
-            col_b.metric('Sentiment', f"{sentiment:.3f}")
-            col_c.metric('Policy Impact', f"{policy_flag:.0f}")
-            st.caption(
-                f"Latest snapshot: {article_count:.0f} related article(s), news-driven volatility adjustment of {adjustment:.3f}."
-            )
-
     st.sidebar.markdown("---")
     if st.sidebar.button("Back to Dashboard", type="primary", use_container_width=True):
         st.session_state.loaded_stock = None
@@ -1920,6 +1958,17 @@ def create_streamlit_app():
                 st.markdown("---")
                 st.markdown("### Forecast Insight")
                 st.info(forecast['forecast_summary'])
+
+                news_context = controller._build_news_forecast_context()
+                if news_context:
+                    st.markdown("### News & Policy Context")
+                    st.write(news_context['summary_text'])
+                    bullet_text = [
+                        f"Related articles: {int(news_context['article_count'])}",
+                        f"Sentiment score: {news_context['sentiment_score']:.3f}",
+                        f"Policy signal: {'present' if news_context['policy_flag'] > 0.5 else 'not prominent'}"
+                    ]
+                    st.markdown("- " + "\n- ".join(bullet_text))
                 st.markdown("---")
 
             regime_fig = controller.get_volatility_regime_chart()
