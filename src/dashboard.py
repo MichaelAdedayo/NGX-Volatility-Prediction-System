@@ -951,6 +951,18 @@ class DashboardController:
             logger.debug(f"Volatility regime chart failed: {e}")
             return None
 
+    def get_recent_news_articles(self, max_articles: int = 8) -> List[Dict[str, Any]]:
+        """Fetch the latest news headlines and article metadata for the current stock."""
+        if not self.current_stock:
+            return []
+
+        try:
+            from news_features import fetch_recent_news_articles
+            return fetch_recent_news_articles(self.current_stock, max_articles=max_articles)
+        except Exception as exc:
+            logger.debug(f"Recent news articles could not be loaded: {exc}")
+            return []
+
     def _build_news_forecast_context(self) -> Dict[str, Any]:
         """Turn the latest news features into a plain-language forecast context."""
         if self.current_data is None:
@@ -1734,7 +1746,8 @@ def create_streamlit_app():
         - The first tab shows price and volatility over time.
         - The second tab compares model forecasts to actual outcomes.
         - The third tab shows simple metrics that tell you which model did best.
-        - The fourth tab gives you tomorrow's volatility forecast with actionable insights for risk management.
+        - The new tab displays recent headlines and policy-related context.
+        - The final tab gives you tomorrow's volatility forecast with actionable insights for risk management.
         """
     )
     st.markdown(
@@ -1747,11 +1760,11 @@ def create_streamlit_app():
     )
 
     # Tabs
-    tabs = ["Historical Data", "Predictions", "Results", "Forecast"]
+    tabs = ["Historical Data", "Predictions", "Results", "News & Policy", "Forecast"]
     if role == "Administrator":
         tabs.append("Admin Console")
 
-    tab1, tab2, tab3, tab4, *extra_tabs = st.tabs(tabs)
+    tab1, tab2, tab3, tab4, tab5, *extra_tabs = st.tabs(tabs)
     admin_tab = extra_tabs[0] if extra_tabs else None
 
     with tab1:
@@ -1890,6 +1903,51 @@ def create_streamlit_app():
                 st.dataframe(pd.DataFrame(pred_data))
 
     with tab4:
+        st.subheader("Recent News & Policy Signals")
+        st.markdown(
+            """
+            This tab shows the latest headlines and policy-related developments that are feeding into the forecast.
+            You can review the actual news text, the source link, and the broader sentiment and policy context.
+            """
+        )
+
+        news_context = controller._build_news_forecast_context()
+        if news_context:
+            st.info(news_context['summary_text'])
+            st.caption(
+                f"Sentiment score: {news_context['sentiment_score']:.3f} | "
+                f"Policy signal: {'present' if news_context['policy_flag'] > 0.5 else 'not prominent'}"
+            )
+
+        articles = controller.get_recent_news_articles(max_articles=8)
+        if articles:
+            st.markdown("**Latest headlines (up to 8):**")
+            for idx, article in enumerate(articles, start=1):
+                title = article.get('title', 'Untitled headline').strip()
+                description = article.get('description', '').strip()
+                link = article.get('link', '').strip()
+                pub_date = article.get('pub_date', '').strip()
+                source_name = 'News source'
+                if link:
+                    try:
+                        from urllib.parse import urlparse
+                        source_name = urlparse(link).netloc.replace('www.', '') or source_name
+                    except Exception:
+                        source_name = 'News source'
+
+                with st.expander(f"{idx}. {title}", expanded=False):
+                    if pub_date:
+                        st.caption(pub_date)
+                    if source_name:
+                        st.caption(f"Source: {source_name}")
+                    if description:
+                        st.write(description)
+                    if link:
+                        st.markdown(f"[Open article]({link})")
+        else:
+            st.info("No live news articles were retrieved for this stock. The dashboard will continue using the fallback policy and sentiment signal.")
+
+    with tab5:
         st.subheader("Next-Day Forecast")
         forecast = controller.forecast_next_day()
         if forecast:

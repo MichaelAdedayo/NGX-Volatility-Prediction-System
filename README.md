@@ -32,6 +32,15 @@ The system integrates data collection, preprocessing, feature engineering, model
 * Model performance evaluation and comparison
 * Interactive data visualization dashboard
 * Risk and trend analysis tools
+* Recent news and policy-aware forecasting using headline sentiment and policy signals
+
+---
+
+## Recent News and Policy Feature
+
+This version of the project includes a recent news and policy signal layer. The system uses recent headlines, sentiment scores, and policy-related cues to generate a readable forecast context that is displayed in the dashboard. These signals help explain and adjust the next-day volatility outlook based on current market and macroeconomic developments.
+
+The feature is especially visible in the Forecast tab, where the dashboard shows a plain-language summary of the latest news and policy context alongside the forecast.
 
 ---
 

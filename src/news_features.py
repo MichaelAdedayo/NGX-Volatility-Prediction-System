@@ -147,8 +147,8 @@ def _fallback_news_summary(stock_name: Optional[str]) -> Dict[str, float]:
     }
 
 
-def summarize_recent_news(stock_name: Optional[str], max_articles: int = 8) -> Dict[str, float]:
-    """Fetch recent headlines and derive simple sentiment/policy features."""
+def fetch_recent_news_articles(stock_name: Optional[str], max_articles: int = 8) -> List[Dict[str, str]]:
+    """Fetch recent headlines and article metadata for the selected stock."""
     base_query = _normalize_query(stock_name)
     queries = [base_query, f"{base_query} Nigeria", f"{base_query} stock news", f"{base_query} CBN policy"]
 
@@ -156,7 +156,12 @@ def summarize_recent_news(stock_name: Optional[str], max_articles: int = 8) -> D
     for query in queries:
         articles.extend(_fetch_google_rss(query, max_articles=max_articles))
 
-    articles = _dedupe_articles(articles)[:max_articles]
+    return _dedupe_articles(articles)[:max_articles]
+
+
+def summarize_recent_news(stock_name: Optional[str], max_articles: int = 8) -> Dict[str, float]:
+    """Fetch recent headlines and derive simple sentiment/policy features."""
+    articles = fetch_recent_news_articles(stock_name, max_articles=max_articles)
 
     if not articles:
         logger.info("No live news articles were retrieved; using deterministic fallback news signal")
